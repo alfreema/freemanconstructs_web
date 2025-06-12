@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Freeman Constructs</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#6366f1',
+              dark: '#0f172a',
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            }
+          }
+        }
+      };
+    </script>
+    <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet" />
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+      .full-viewport {
+        height: 100vh;
+      }
+      @media (max-width: 768px) {
+        .full-viewport {
+          height: var(--vh, 100vh);
+        }
+      }
+    </style>
+  <style>
+    .bg-video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 177.78vh; /* 16 / 9 */
+      height: 100vh;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      border: none;
+    }
+
+    @media (min-aspect-ratio: 16/9) {
+      .bg-video {
+        width: 100vw;
+        height: 56.25vw; /* 9 / 16 */
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  </style>
+    <script>
+      function setRealVh() {
+        const vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+      }
+      window.addEventListener('resize', setRealVh);
+      window.addEventListener('load', setRealVh);
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body class="text-gray-800 bg-white">
+
+    <!-- Sticky Nav -->
+	<header class="sticky top-0 z-50 bg-white/90 backdrop-blur text-gray-800 shadow">
+	  <div class="max-w-6xl mx-auto px-6 py-4 flex justify-center items-center">
+		<nav class="space-x-6 text-sm font-light">
+		  <a href="#home" class="hover:text-primary transition">Home</a>
+		  <a href="#ai" class="hover:text-primary transition">AI</a>
+		  <a href="#about" class="hover:text-primary transition">About</a>
+		  <a href="#bio" class="hover:text-primary transition">Bio</a>
+		  <a href="#contact" class="hover:text-primary transition">Contact</a>
+		</nav>
+	  </div>
+	</header>
+
+    <!-- Hero -->
+    <section id="home" class="relative w-screen h-screen overflow-hidden text-white">
+      <div class="absolute inset-0 z-0 overflow-hidden">
+        <iframe
+          src="https://player.vimeo.com/video/1085296488?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1&playsinline=1"
+          frameborder="0"
+          allow="autoplay; fullscreen"
+          class="bg-video"
+        ></iframe>
+        <div class="absolute inset-0 bg-black/70"></div>
+      </div>
+    
+      <div class="relative z-10 flex flex-col items-center justify-center text-center h-full px-6">
+        <h1 class="text-5xl font-light mb-4">Freeman Constructs</h1>
+        <p class="text-xl text-gray-200 max-w-xl mx-auto">
+          A private research initiative exploring AI, technology, construction, and beyond.
+        </p>
+      </div>
+
+      <div class="absolute bottom-24 left-1/2 transform -translate-x-1/2 z-10">
+        <div class="w-6 h-10 border-2 border-white rounded-full flex items-start justify-center p-1">
+          <div class="w-1 h-2 bg-white animate-bounce rounded-full"></div>
+        </div>
+      </div>
+      
+    </section>
+    
+    <!-- AI Research -->
+    <!--<section class="py-20 px-6 bg-white text-gray-800" id="ai">-->
+    <section class="py-24 px-6 bg-gradient-to-b from-white to-gray-50 text-gray-800" id="ai">
+
+      <div class="max-w-3xl mx-auto" data-aos="fade-up">
+        <h2 class="text-3xl font-light mb-6 text-primary">AI Research</h2>
+        <p class="mb-6">
+          My recent work explores a foundational shift of AI compute by eliminating floating point arithmetic entirely. I&apos;ve demonstrated that full transformer models can be trained using integer-only pipelines — a shift that unlocks enormous gains in performance, efficiency, and hardware simplicity.
+        </p>
+
+        <ul class="space-y-6">
+          <li class="flex items-start bg-yellow-50 rounded-md p-4">
+            <span class="text-primary mt-1 mr-3">✓</span>
+            <div>
+              <p><strong>Trained a GPT-style transformer using only integer arithmetic — no floating point at all.</strong></p>
+              <p class="text-sm text-gray-700">
+                This is a potentially world-first milestone that demonstrates transformer training can be achieved with integer-only math — eliminating floating point units entirely. It marks a foundational shift in how large models can be trained and deployed, enabling faster, simpler, lower-power hardware across the AI stack.
+              </p>
+            </div>
+          </li>
+                    
+          <li class="flex items-start">
+            <span class="text-primary mt-1 mr-3">✓</span>
+            <div>
+              <p><strong>Matched FP32-level accuracy on MNIST and CIFAR-10 using fully integer pipelines.</strong></p>
+              <p class="text-sm text-gray-700">These foundational benchmarks were used as early tests to incrementally validate the stability and learning fidelity of the integer-only training pipeline.</p>
+            </div>
+          </li>
+          
+          <li class="flex items-start">
+            <span class="text-primary mt-1 mr-3">✓</span>
+            <div>
+              <p><strong>One-cycle integer MAC outperforms HardFloat FP32 across all key metrics.</strong></p>
+              <p class="text-sm text-gray-700">
+                Speed/Area: 1.79x &mdash; Energy/Area: 5.98x &mdash; Speed/Energy: 5.27x
+              </p>
+              <p class="text-sm text-gray-700">
+                This is a disruptive apples-to-apples baseline showing that integer arithmetic can outperform floating point on its own terms &mdash; and it doesn&apos;t even include the additional systemic gains integer designs enable.
+                It breaks the traditional performance &dash; power &dash; area triangle by improving all three simultaneously.
+              </p>
+            </div>
+          </li>
+                    
+          <li class="flex items-start">
+            <span class="text-primary mt-1 mr-3">✓</span>
+            <div>
+              <p><strong>Implemented entirely with open-source tools (OpenLane, Yosys) and no architectural optimization.</strong></p>
+              <p class="text-sm text-gray-700">These results were achieved without fine-tuning &dash; suggesting significant headroom remains for even greater gains with dedicated design effort.</p>
+            </div>
+          </li>
+
+          <li class="flex items-start">
+            <span class="text-primary mt-1 mr-3">✓</span>
+            <div>
+              <p><strong>Design is radically simpler, accelerating the path from concept to silicon.</strong></p>
+              <p class="text-sm text-gray-700">Simplified hardware reduces development cost, improves verification timelines, and lowers barriers to innovation across the AI hardware stack.</p>
+            </div>
+          </li>
+        </ul>
+
+        <p class="mt-8">
+          These accomplishments point to a foundational shift in AI compute &dash; impacting everything from chip design to data center infrastructure and beyond.
+        </p>
+
+        <p class="mt-6 text-sm text-gray-600">
+          Supporting documentation is available upon request for qualified technical reviewers, collaborators, or investors.
+        </p>
+        
+      </div>
+
+      <div class="max-w-3xl mx-auto mt-16" data-aos="fade-up">
+        <h3 class="text-2xl font-light text-primary mt-12 mb-4" data-aos="fade-up">Why This Matters</h3>
+
+        <p class="mb-6" data-aos="fade-up" data-aos-delay="100">
+          In engineering, we talk about the Performance, Power, Area (PPA) triangle — you typically optimize for two at the expense of the third. But if you break that triangle, delivering better performance, lower power, and smaller size at the same time, you’ve created something truly disruptive.
+        </p>
+        
+        <p class="mb-6" data-aos="fade-up" data-aos-delay="200">
+          That’s what this research shows: a way to train and run AI models using integer-only arithmetic, eliminating floating point entirely. The results point to a future where chips can outperform today's best (like the Nvidia H100), with less power, less silicon, and dramatically lower cost.
+        </p>
+        
+        <p class="mb-6" data-aos="fade-up" data-aos-delay="300">
+          This unlocks high-performance AI not just in datacenters — but in edge devices: PCs, laptops, wearables, even autonomous vehicles. It brings real-time AI training and inference into reach for countless applications.
+        </p>
+      </div>
+
+      <div class="max-w-3xl mx-auto mt-12">
+        <h4 class="text-xl font-light text-primary mb-4" data-aos="fade-up">Real-World Possibilities</h4>
+      
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm text-gray-700">
+          
+          <div class="flex items-start gap-4" data-aos="fade-up" data-aos-delay="100">
+            <i data-lucide="server" class="w-6 h-6 text-primary mt-1"></i>
+            <p><strong>Datacenter disruption</strong><br/>Drastically lower power, cost, and footprint for AI training and inference at scale.</p>
+          </div>
+      
+          <div class="flex items-start gap-4" data-aos="fade-up" data-aos-delay="200">
+            <i data-lucide="car" class="w-6 h-6 text-primary mt-1"></i>
+            <p><strong>Self-learning vehicles</strong><br/>Real-time training onboard — no cloud required, adaptive to every road and driver.</p>
+          </div>
+      
+          <div class="flex items-start gap-4" data-aos="fade-up" data-aos-delay="300">
+            <i data-lucide="brain" class="w-6 h-6 text-primary mt-1"></i>
+            <p><strong>Private AI assistants</strong><br/>HAL9000-style intelligence that runs locally — always on, always personal, never shared.</p>
+          </div>
+      
+          <div class="flex items-start gap-4" data-aos="fade-up" data-aos-delay="400">
+            <i data-lucide="watch" class="w-6 h-6 text-primary mt-1"></i>
+            <p><strong>Ambient edge AI</strong><br/>Wearables, implants, or sensors that learn and respond — without needing the cloud or even batteries.</p>
+          </div>
+      
+        </div>
+      </div>
+            
+    </section>
+
+    <!-- About -->
+    <section class="py-20 px-6 bg-gray-100 text-gray-800" id="about">
+      <div class="max-w-3xl mx-auto" data-aos="fade-up">
+        <h2 class="text-3xl font-light mb-4 text-primary">What is Freeman Constructs?</h2>
+        <p>
+          Freeman Constructs is a personal innovation lab and future-facing brand for private research, engineering, and venture exploration.
+          It includes work in AI, tech architecture, construction concepts, and investment strategy. Current focus is on a hardware-level
+          breakthrough in AI compute: full transformer training using integer arithmetic &dash; a potential paradigm shift in energy-efficient AI hardware.
+        </p>
+      </div>
+    </section>
+
+	<!-- Bio -->
+	<section class="py-20 px-6 bg-white text-gray-800" id="bio">
+	  <div class="max-w-4xl mx-auto flex flex-col md:flex-row gap-8 items-start" data-aos="fade-up">
+		<!-- Profile Image -->
+		<img
+		  src="https://raw.githubusercontent.com/alfreema/freemanconcepts_site/refs/heads/main/200x200.jpg?token=GHSAT0AAAAAADCXLYCU3EEGPNGQTD5RTDCA2CK47EQ"
+		  alt="Aaron Freeman"
+		  class="w-40 h-40 object-cover rounded-xl shadow-md"
+		/>
+
+		<!-- Bio Text -->
+		<div>
+		  <h2 class="text-3xl font-light mb-4 text-primary">Bio: Aaron Freeman</h2>
+		  <p>
+			Aaron Freeman is a lifelong technologist and entrepreneur. He began coding at age 8, launched a BBS in 1983, and later earned a B.S. in
+			Computer Science and an M.S. in Electrical Engineering (with a focus on computer architecture) from Wichita State University.
+		  </p>
+		  <p class="mt-4">
+			While pursuing his Ph.D. he was awarded a Teaching Fellowship, where he taught various programming, computer architecture, genetic algorithms, and  other courses.   
+      He founded Adroit, a consulting firm serving major clients including AmeriServe (formerly PepsiCo Food Services). He was awarded a U.S. patent for the first
+			internet-connected sprinkler system (US-7123993-B1) and founded <a href="https://sendthisfile.com">SendThisFile</a>, the first file-transfer-as-a-service platform.
+		  </p>
+		  <p class="mt-4">
+			He and his wife Larissa are active investors and entrepreneurs across sectors including retail, real estate, and infrastructure.
+			He holds a Class A General Contractor&apos;s License and has led development efforts in robotics, cloud, real estate, trading, and AI.
+		  </p>
+		</div>
+	  </div>
+	</section>
+
+	<!-- Contact -->
+	<section class="py-20 px-6 bg-white text-gray-800" id="contact">
+	  <div class="max-w-3xl mx-auto text-center" data-aos="fade-up">
+		<h2 class="text-3xl font-bold mb-4 text-primary">Get in Touch</h2>
+
+		<p class="text-lg">
+		  Email:
+		  <span class="font-mono select-text">
+			aaron<span class="hidden sm:inline"> [at] </span><span class="inline sm:hidden">@</span>freemanconstructs.com
+		  </span>
+		</p>
+
+		<div class="mt-6 flex justify-center space-x-6">
+		  <!-- Facebook -->
+		  <a
+			href="https://www.facebook.com/aaron.freeman.7330"
+			target="_blank"
+			aria-label="Facebook"
+			class="text-gray-600 hover:text-primary transition"
+		  >
+			<i data-lucide="facebook" class="w-6 h-6"></i>
+		  </a>
+
+		  <!-- GitHub -->
+		  <a
+			href="https://github.com/alfreema"
+			target="_blank"
+			aria-label="GitHub"
+			class="text-gray-600 hover:text-primary transition"
+		  >
+			<i data-lucide="github" class="w-6 h-6"></i>
+		  </a>
+		</div>
+
+	  </div>
+	</section>
+
+    <!-- Footer -->
+    <footer class="py-6 text-center text-gray-500 text-sm bg-gray-100">
+      <p>&copy; 2025 Freeman Constructs.</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>AOS.init();</script>
+    <script>lucide.createIcons();</script>
+  </body>
+</html>
