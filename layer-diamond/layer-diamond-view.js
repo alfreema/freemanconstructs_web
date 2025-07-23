@@ -1,6 +1,6 @@
 import { html } from 'https://cdn.jsdelivr.net/gh/lit/dist@3/core/lit-core.min.js';
 
-export function renderDiamond({ points, colors, viewBox, width, label, labelAngle }) {
+export function renderDiamond({ points, colors, viewBox, width, label, labelAngle, focused }) {
   return html`
     <svg
       width="${width}"
@@ -33,6 +33,7 @@ export function renderDiamond({ points, colors, viewBox, width, label, labelAngl
         text-anchor="start"
         dominant-baseline="middle"
         transform="rotate(${labelAngle} ${width / 2} 90)"
+        style="${focused ? 'font-weight: bold; text-shadow: 1px 1px 3px #000;' : ''}"
       >
         ${label}
       </text>

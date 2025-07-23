@@ -8,7 +8,8 @@ customElements.define('layer-diamond', class LayerDiamond extends LitElement {
     color1: { type: String },
     color2: { type: String },
     label: { type: String },
-    zIndex: { type: Number }
+    zIndex: { type: Number },
+    focused: { type: Boolean }
   };
 
   constructor() {
@@ -37,7 +38,8 @@ customElements.define('layer-diamond', class LayerDiamond extends LitElement {
       points: { top, left, right },
       colors,
       label: this.label,
-      labelAngle   // <-- Pass it here!
+      labelAngle,
+      focused: this.focused
     });
   }
   
