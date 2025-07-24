@@ -1,6 +1,8 @@
 import { html } from 'https://cdn.jsdelivr.net/gh/lit/dist@3/core/lit-core.min.js';
 
 export function renderDiamond({ points, colors, viewBox, width, label, labelAngle, focused }) {
+  const gradientId = `grad-${label.replace(/\s+/g, '-').toLowerCase()}`;
+
   return html`
     <svg
       width="${width}"
@@ -8,6 +10,14 @@ export function renderDiamond({ points, colors, viewBox, width, label, labelAngl
       viewBox="${viewBox}"
       xmlns="http://www.w3.org/2000/svg"
     >
+      <!-- Define gradient with unique ID -->
+      <defs>
+        <linearGradient id="${gradientId}" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="${colors.topStart}" />
+          <stop offset="100%" stop-color="${colors.topEnd}" />
+        </linearGradient>
+      </defs>
+
       <!-- Left Face -->
       <polygon points="${points.left}" fill="${colors.left}" />
 
@@ -15,18 +25,12 @@ export function renderDiamond({ points, colors, viewBox, width, label, labelAngl
       <polygon points="${points.right}" fill="${colors.right}" />
 
       <!-- Top Face -->
-      <defs>
-        <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="${colors.topStart}" />
-          <stop offset="100%" stop-color="${colors.topEnd}" />
-        </linearGradient>
-      </defs>
-      <polygon points="${points.top}" fill="url(#grad)" />
+      <polygon points="${points.top}" fill="url(#${gradientId})" />
 
       <!-- Label -->
       <text
         x="${width / 2 + 10}"
-        y="90"
+        y="${0.44 * width}"  // matches the diamond height
         fill="white"
         font-size="16"
         font-family="sans-serif"
@@ -40,3 +44,4 @@ export function renderDiamond({ points, colors, viewBox, width, label, labelAngl
     </svg>
   `;
 }
+
