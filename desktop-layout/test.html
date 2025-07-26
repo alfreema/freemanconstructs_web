@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Desktop Layout Test</title>
+    <script type="module">
+      import '../layer-diamond/layer-diamond.js';
+      import '../layer-callout/layer-callout.js';
+      import '../callout-connector/callout-connector.js';
+      import './desktop-layout.js';
+
+      window.addEventListener('DOMContentLoaded', () => {
+        const layoutEl = document.querySelector('desktop-layout');
+        layoutEl.layers = [
+          {
+            diamond: {
+              color1: '#67b7ef',
+              color2: '#4a90e2',
+              width: 200,
+              zIndex: 1,
+              label: 'Inference'
+            },
+            callout: {
+              title: 'Inference Engine',
+              text: 'Processes tokens using trained weights.',
+              color: '#e0f7ff'
+            },
+            connector: {
+              from: { x: 100, y: 100 },
+              to: { x: 300, y: 150 }
+            }
+          },
+          {
+            diamond: {
+              color1: '#67eebf',
+              color2: '#4ac27a',
+              width: 200,
+              zIndex: 0,
+              label: 'Training'
+            },
+            callout: {
+              title: 'Training Stack',
+              text: 'Optimizes model weights based on loss.',
+              color: '#e6ffee'
+            },
+            connector: {
+              from: { x: 100, y: 200 },
+              to: { x: 300, y: 250 }
+            }
+          }
+        ];
+      });
+    </script>
+    <style>
+      body {
+        margin: 0;
+        font-family: sans-serif;
+        background: #f0f0f0;
+      }
+    </style>
+  </head>
+  <body>
+    <desktop-layout></desktop-layout>
+  </body>
+</html>
