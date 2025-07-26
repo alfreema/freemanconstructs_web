@@ -7,9 +7,16 @@ export function renderConnector({ fromX, fromY, toX, toY, color = '#cccccc', wid
 
   return html`
     <svg
-      style="position: absolute; top: 0; left: 0; pointer-events: none; overflow: visible;"
-      width="100%"
-      height="100%"
+      style="
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        overflow: visible;
+        z-index: 10;
+      "
     >
       <path d="${path}"
             stroke="${color}"
