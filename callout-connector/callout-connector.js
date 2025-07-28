@@ -1,4 +1,5 @@
 import { LitElement } from 'https://cdn.jsdelivr.net/gh/lit/dist@3/core/lit-core.min.js';
+import { render as litRender } from 'https://cdn.jsdelivr.net/gh/lit/dist@3/core/lit-core.min.js';
 import { renderConnector } from './callout-connector-view.js';
 
 customElements.define('callout-connector', class CalloutConnector extends LitElement {
@@ -17,8 +18,6 @@ customElements.define('callout-connector', class CalloutConnector extends LitEle
 
   constructor() {
     super();
-    this.fromAnchor = 'right';
-    this.toAnchor = 'left';
     this.color = '#cccccc';
     this.width = 2;
     this.fromX = 0;
@@ -30,22 +29,36 @@ customElements.define('callout-connector', class CalloutConnector extends LitEle
 
   connectedCallback() {
     super.connectedCallback();
-    this.scheduleConnectorUpdate();
-
+    this.resizeObserver = new ResizeObserver(this.updateConnectorBound); // ✅ Move this to top
+    setTimeout(() => this.scheduleConnectorUpdate(), 50);
+    this.retryUntilResolved();
+  
     window.addEventListener('resize', this.updateConnectorBound);
-
-    // Observe DOM position changes (optional, useful for animating/mutating callouts)
-    this.resizeObserver = new ResizeObserver(this.updateConnectorBound);
-    const fromEl = document.getElementById(this.fromId);
-    const toEl = document.getElementById(this.toId);
-    if (fromEl) this.resizeObserver.observe(fromEl);
-    if (toEl) this.resizeObserver.observe(toEl);
   }
-
+  
   disconnectedCallback() {
     super.disconnectedCallback();
     window.removeEventListener('resize', this.updateConnectorBound);
     if (this.resizeObserver) this.resizeObserver.disconnect();
+  }
+
+  retryUntilResolved(retries = 10) {
+    const fromEl = document.getElementById(this.fromId);
+    const toEl = document.getElementById(this.toId);
+
+    if (
+      fromEl && toEl &&
+      typeof fromEl.getAnchor === 'function' &&
+      typeof toEl.getAnchor === 'function'
+    ) {
+      this.resizeObserver.observe(fromEl);
+      this.resizeObserver.observe(toEl);
+      this.updateConnector();
+    } else if (retries > 0) {
+      setTimeout(() => this.retryUntilResolved(retries - 1), 100);
+    } else {
+      console.warn(`Connector failed to resolve elements: ${this.fromId} → ${this.toId}`);
+    }
   }
 
   scheduleConnectorUpdate() {
@@ -59,21 +72,23 @@ customElements.define('callout-connector', class CalloutConnector extends LitEle
   updateConnector() {
     const fromEl = document.getElementById(this.fromId);
     const toEl = document.getElementById(this.toId);
-    const container = this.offsetParent;
 
     if (
       !fromEl || !toEl ||
       typeof fromEl.getAnchor !== 'function' ||
-      typeof toEl.getAnchor !== 'function' ||
-      !container
+      typeof toEl.getAnchor !== 'function'
     ) return;
 
-    const from = fromEl.getAnchor(this.fromAnchor);
-    const to = toEl.getAnchor(this.toAnchor);
+    // ✅ Use Lit properties here (not attributes)
+    const fromAnchor = this.fromAnchor || 'right';
+    const toAnchor   = this.toAnchor || 'left';
+
+    const from = fromEl.getAnchor(fromAnchor);
+    const to = toEl.getAnchor(toAnchor);
 
     if (!from || !to) return;
 
-    const containerRect = container.getBoundingClientRect();
+    const containerRect = this.getBoundingClientRect();
 
     this.fromX = from.x - containerRect.left;
     this.fromY = from.y - containerRect.top;
@@ -81,6 +96,22 @@ customElements.define('callout-connector', class CalloutConnector extends LitEle
     this.toY = to.y - containerRect.top;
 
     this.requestUpdate();
+    litRender(this.render(), this);
+  }
+
+  willUpdate(changedProps) {
+    if (
+      changedProps.has('fromId') ||
+      changedProps.has('toId') ||
+      changedProps.has('fromAnchor') ||
+      changedProps.has('toAnchor')
+    ) {
+      this.scheduleConnectorUpdate();
+    }
+  }
+
+  createRenderRoot() {
+    return this; // Use light DOM so anchors remain visible
   }
 
   render() {
@@ -92,9 +123,5 @@ customElements.define('callout-connector', class CalloutConnector extends LitEle
       color: this.color,
       width: this.width
     });
-  }
-
-  createRenderRoot() {
-    return this; // Use light DOM for SVG positioning ease
   }
 });

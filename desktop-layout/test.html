@@ -1,29 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Desktop Layout Test</title>
-    <script type="module">
-      import '../layer-diamond/layer-diamond.js';
-      import '../layer-callout/layer-callout.js';
-      import '../callout-connector/callout-connector.js';
-      import './desktop-layout.js';
+<head>
+  <meta charset="UTF-8" />
+  <title>Desktop Layout Grid Test</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 2rem;
+      background: #f9f9f9;
+      font-family: sans-serif;
+    }
 
-      // ❌ Removed broken .layers override
-      window.addEventListener('DOMContentLoaded', () => {
-        // No need to override `layoutEl.layers` here
-        // The default layers from desktop-layout.js constructor are valid and will render properly
-      });
-    </script>
-    <style>
-      body {
-        margin: 0;
-        font-family: sans-serif;
-        background: #f0f0f0;
-      }
-    </style>
-  </head>
-  <body>
-    <desktop-layout></desktop-layout>
-  </body>
+    h2 {
+      margin-bottom: 2rem;
+    }
+
+    desktop-layout {
+      display: block;
+      padding: 1rem;
+    }
+
+    .grid-layout {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      column-gap: 80px;  /* Space between callouts and diamond */
+      row-gap: 80px;     /* Vertical spacing between layers */
+      align-items: center;
+    }
+
+    .layer-row {
+      display: contents; /* allows children to participate directly in the grid */
+    }
+
+    .left-callout {
+      justify-self: end;
+    }
+
+    .right-callout {
+      justify-self: start;
+    }
+
+    .diamond-cell {
+      display: flex;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+  <h2>🖥️ Desktop Grid Layout Preview</h2>
+
+  <desktop-layout></desktop-layout>
+
+  <script type="module">
+    import './desktop-layout.js';
+    import '../layer-callout/layer-callout.js';
+    import '../layer-diamond/layer-diamond.js';
+    import '../callout-connector/callout-connector.js';
+
+    // Set test layer data
+    import { defaultLayerData } from './desktop-layout-model.js';
+    document.querySelector('desktop-layout').layers = defaultLayerData;
+  </script>
+</body>
 </html>

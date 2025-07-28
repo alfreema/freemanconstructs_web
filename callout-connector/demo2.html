@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Live Connector Reversed Demo</title>
+  <style>
+    body {
+      background: #eef6fc;
+      margin: 0;
+      padding: 40px;
+      font-family: sans-serif;
+    }
+
+    .demo-container {
+      position: relative;
+      width: 100%;
+      height: 500px;
+      border: 1px dashed #ccc;
+    }
+
+    layer-diamond,
+    layer-callout,
+    callout-connector {
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+  <h2>🔁 Live Connector With Diamond on Right</h2>
+  <div class="demo-container">
+    <layer-callout
+      id="callout"
+      title="Representation Layer"
+      text="This layer improves generalization and internal structure."
+      backgroundColor="#e0f7fa"
+      borderColor="#00796b"
+      style="left: 100px; top: 130px;"
+    ></layer-callout>
+
+    <layer-diamond
+      id="diamond"
+      diamondId="training"
+      style="left: 600px; top: 150px;"
+      label="TRAINING"
+      color1="#3f6"
+      color2="#080"
+    ></layer-diamond>
+
+    <callout-connector
+      fromId="diamond"
+      fromAnchor="left"
+      toId="callout"
+      toAnchor="right"
+      color="#00ccff"
+      width="3"
+    ></callout-connector>
+  </div>
+
+  <script type="module">
+    import '../layer-diamond/layer-diamond.js';
+    import '../layer-callout/layer-callout.js';
+    import './callout-connector.js';
+  </script>
+</body>
+</html>
