@@ -47,21 +47,20 @@
 
 ## 🖥️ **Desktop Layout Enhancements (Refactor to Grid Layout)**
 
-* [ ] Refactor `<desktop-layout>` to use CSS Grid instead of absolute positioning
-* [ ] Define a 3-column grid in the layout container: `grid-template-columns: 1fr auto 1fr`
-* [ ] Render one grid row per layer, with:
-
+* ✅ Refactor `<desktop-layout>` to use CSS Grid instead of absolute positioning
+* ✅ Define a 3-column grid in the layout container: `grid-template-columns: 1fr auto 1fr`
+* ✅ Render one grid row per layer, with:
   * Left column: optional left callout
   * Center column: diamond
   * Right column: optional right callout
-* [ ] Alternate callouts by index (even → right, odd → left)
-* [ ] Align left callouts on their **right edge** using `justify-self: end`
-* [ ] Align right callouts on their **left edge** using `justify-self: start`
-* [ ] Remove `computeLayout()` and all hardcoded `x/y` layout logic
-* [ ] Replace layout rendering with `layers.map(...)` over grid rows
-* [ ] Update `<callout-connector>` to compute line endpoints using `getBoundingClientRect()`
-* [ ] Assign stable `id` or `data-ref` to each diamond and callout for connector targeting
-* [ ] Ensure connectors correctly anchor between components across grid cells
+* ✅ Alternate callouts by index (even → right, odd → left)
+* ✅ Align left callouts on their **right edge** using `justify-self: end`
+* ✅ Align right callouts on their **left edge** using `justify-self: start`
+* ✅ Remove `computeLayout()` and all hardcoded `x/y` layout logic
+* ✅ Replace layout rendering with `layers.map(...)` over grid rows
+* ✅ Update `<callout-connector>` to compute line endpoints using `getBoundingClientRect()`
+* ✅ Assign stable `id` or `data-ref` to each diamond and callout for connector targeting
+* ✅ Ensure connectors correctly anchor between components across grid cells
 * [ ] Test with various layer counts (3, 6, 10) to ensure clean scaling
 * [ ] Verify layout remains centered and well-balanced on desktop screens
 * [ ] Ensure layout is scrollable if height exceeds viewport
