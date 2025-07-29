@@ -86,20 +86,27 @@ export class TheBreakthrough extends LitElement {
           </div>
           <div class="stat">
             <div class="icon">${this.boltIcon()}</div>
-            <div><span class="highlight">3.8×</span> MAC advantage (Speed, Power, Area).</div>
+            <div><span class="highlight">10.5×</span> MAC advantage (Speed, Power, Area).</div>
           </div>
           <div class="stat">
             ${this.chipIcon()}
             <div>Enables radically simpler chips.</div>
           </div>
         </div>
-        <div class="note">FP32 vs Integer MAC comparison</div>
-
+        <div>FP32 vs 32-bit Integer MAC comparison</div>
         <performance-bars
           .metrics=${[
             { label: 'Speed/Area', value: 1.79 },
             { label: 'Energy/Area', value: 5.98 },
             { label: 'Speed/Energy', value: 5.27 },
+          ]}
+        ></performance-bars>
+        <div style="margin-top: 100px;">Projected FP32 vs Optimized MAC comparison</div>
+        <performance-bars
+          .metrics=${[
+            { label: 'Speed/Area', value: 5.6 },
+            { label: 'Energy/Area', value: 12.6 },
+            { label: 'Speed/Energy', value: 16.6 },
           ]}
         ></performance-bars>
       </section>
