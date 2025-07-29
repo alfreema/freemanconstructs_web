@@ -1,5 +1,6 @@
 import { LitElement, html, css } from 'https://esm.sh/lit';
 import './ai/problem-scale.js';
+import './ai/the-breakthrough.js'; // ✅ new section
 import './ai/ai-research.js';
 import './ai/why-matters.js';
 import './ai/real-possibilities.js';
@@ -32,6 +33,7 @@ export class AiSection extends LitElement {
       <section id="ai">
         <div class="container" data-aos="fade-up">
           <problem-scale></problem-scale>
+          <the-breakthrough></the-breakthrough>
           <ai-research></ai-research>
           <why-matters></why-matters>
           <real-possibilities></real-possibilities>
