@@ -42,10 +42,10 @@
 	.st36{display:inline;}
 	.st37{fill-rule:evenodd;clip-rule:evenodd;fill:#33BAE5;}
 	.st38{fill-rule:evenodd;clip-rule:evenodd;}
-	.st39{font-family:'SassoonSansStd';}
+	.st39 { font-family: 'Inter', 'Roboto', sans-serif; }
 	.st40{font-size:24.0955px;}
 	.st41{fill:#27B6E5;}
-	.st42{font-family:'SassoonSansStd-Bold';}
+	.st42{ font-family: 'Roboto', sans-serif; }
 	.st43{font-size:61.6502px;}
 	.st44{font-size:30.7589px;}
 	.st45{font-family:'MyriadPro-Regular';}
@@ -55,6 +55,13 @@
 	.st49{fill:#B887F6;}
 	.st50{font-size:25.3718px;}
 	.st51{fill:#5992DF;}
+</style>
+<style>
+  text {
+    font-family: 'Inter', 'Roboto', sans-serif !important;
+    font-weight: 600 !important;
+    letter-spacing: -0.5px;
+  }
 </style>
 <g id="Layer_2_2_">
 	<g id="Layer_6">
@@ -868,7 +875,6 @@
 <text transform="matrix(0.9905 0 0 1 129.5496 82.1716)" class="st41 st42 st43">USER APP</text>
 <text transform="matrix(1 0 0 1 133.1658 129.1902)" class="st42 st44">$1.0 Trillion by 2030</text>
 <g id="Layer_2_3_">
-	<text transform="matrix(1 0 0 1 59.1297 549.9539)" class="st45 st46">Lorem ipsum</text>
 	<text transform="matrix(1 0 0 1 53.8543 559.241)" class="st42 st44">$100 Billion by 2030</text>
 	<text transform="matrix(0.9905 0 0 1 50.2386 512.2224)" class="st47 st42 st43">TRAINING</text>
 	<text transform="matrix(0.9447 0 0 1 55.5906 590.658)" class="st39 st40">The compute backbone for developing </text>
@@ -876,7 +882,6 @@
 	<text transform="matrix(0.9447 0 0 1 55.5906 648.5066)" class="st39 st40">pipelines, high-performance infrastructure, </text>
 	<text transform="matrix(0.9447 0 0 1 55.5906 677.3962)" class="st39 st40">and custom training environments.</text>
 	<text transform="matrix(0.9447 0 0 1 55.5906 706.2849)" class="st39 st40">https://t.ly/7G1Dz</text>
-	<text transform="matrix(1 0 0 1 52.2674 961.2361)" class="st45 st46">Lorem ipsum</text>
 	<text transform="matrix(1 0 0 1 46.9925 970.5232)" class="st42 st44">$360 Billion by 2030</text>
 	<text transform="matrix(0.9905 0 0 1 43.3763 923.5046)" class="st48 st42 st43">SILICON</text>
 	<text transform="matrix(0.9447 0 0 1 48.7288 1001.9412)" class="st39 st40">AI-specific chips including GPUs, TPUs, </text>
@@ -884,7 +889,6 @@
 	<text transform="matrix(0.9447 0 0 1 48.7288 1059.7888)" class="st39 st40">The computational foundation of modern </text>
 	<text transform="matrix(0.9447 0 0 1 48.7288 1088.6785)" class="st39 st40">artificial intelligence.</text>
 	<text transform="matrix(0.9447 0 0 1 48.7288 1117.5681)" class="st39 st40">https://tiny.ee/2fv7</text>
-	<text transform="matrix(1 0 0 1 1592.405 939.2263)" class="st45 st46">Lorem ipsum</text>
 	<text transform="matrix(1 0 0 1 1578.571 948.5134)" class="st42 st44">$76.7 Billion by 2030</text>
 	<text transform="matrix(0.9905 0 0 1 1517.1423 901.4949)" class="st49 st42 st43">HARDWARE</text>
 	<text transform="matrix(0.9625 0 0 1 1413.1443 992.6599)" class="st39 st50">Physical infrastructure for AI at scale—servers, </text>
