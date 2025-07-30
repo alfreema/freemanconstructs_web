@@ -47,6 +47,28 @@ export class PipelineHighlight extends LitElement {
       stroke-linecap: round;
       stroke-linejoin: round;
     }
+
+    @media (max-width: 640px) {
+      .wrapper {
+        padding: 0.75rem 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .pipeline {
+        font-size: 0.8rem;
+        gap: 0.4rem;
+      }
+
+      .step {
+        padding: 0.25rem 0.65rem;
+      }
+
+      .arrow-icon {
+        width: 0.75rem;
+        height: 0.75rem;
+      }
+    }
+
   `;
 
   static properties = {

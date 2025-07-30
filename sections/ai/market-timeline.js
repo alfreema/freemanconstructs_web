@@ -106,6 +106,44 @@ export class MarketTimeline extends LitElement {
     .entry:last-child .title {
       color: #be185d;
     }
+
+    @media (max-width: 640px) {
+    .timeline::before {
+        left: 12px; /* move line to left */
+        transform: none;
+    }
+
+    .entry {
+        flex-direction: row !important;
+        align-items: flex-start;
+        margin: 2rem 0;
+    }
+
+    .dot {
+        left: 12px;
+        transform: scale(1);
+    }
+
+    .entry-content {
+        margin-left: 2.25rem !important;
+        margin-right: 0 !important;
+        max-width: 100%;
+        padding: 1rem 1rem;
+    }
+
+    .year {
+        font-size: 0.85rem;
+    }
+
+    .title {
+        font-size: 1rem;
+    }
+
+    .desc {
+        font-size: 0.875rem;
+    }
+    }
+
   `;
 
   firstUpdated() {

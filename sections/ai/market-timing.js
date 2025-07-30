@@ -46,6 +46,29 @@ export class MarketTiming extends LitElement {
       font-style: italic;
       opacity: 0.9;
     }
+
+    @media (max-width: 640px) {
+    :host {
+        padding: 3rem 1rem;
+    }
+
+    .headline {
+        font-size: 1.75rem;
+        line-height: 1.3;
+        margin-bottom: 2rem;
+    }
+
+    .fade-lines {
+        gap: 1rem;
+        font-size: 1rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .fade-lines div:nth-child(3) {
+        font-size: 0.95rem;
+    }
+    }
+
   `;
 
   render() {
