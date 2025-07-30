@@ -79,8 +79,36 @@ export class ProblemScale extends LitElement {
         max-width: 16ch;
         margin-inline: auto;
       }
-      .stat-blocks {
+
+      .subtitle {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+        max-width: 32ch;
+        margin-inline: auto;
+      }
+
+      .graphic-wrapper {
         margin-top: 2rem;
+      }
+
+      .stat-blocks {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+        margin-top: 2rem;
+      }
+
+      .stat-block {
+        padding: 1rem;
+        font-size: 0.95rem;
+      }
+
+      .stat-icon svg {
+        width: 1.25rem;
+        height: 1.25rem;
+      }
+
+      :host {
+        padding: 3rem 1rem;
       }
     }
   `;
