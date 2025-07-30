@@ -59,7 +59,7 @@ export class ContactSection extends LitElement {
       <section id="contact">
         <div class="container" data-aos="fade-up">
           <h2>Get in Touch</h2>
-          <p>
+          <p style="margin-bottom: 300px;">
             Email:
             <span class="email">
               aaron<span class="hidden sm:inline"> [at] </span><span class="inline sm:hidden">@</span>freemanconstructs.com
