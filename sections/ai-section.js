@@ -2,10 +2,9 @@ import { LitElement, html, css } from 'https://esm.sh/lit';
 import './ai/problem-scale.js';
 import './ai/the-breakthrough.js';
 import './ai/how-it-works.js';
-import './ai/market-timing.js'; // ✅ import it here
-import './ai/ai-research.js';
-import './ai/why-matters.js';
-import './ai/real-possibilities.js';
+import './ai/market-timing.js';
+import './ai/real-impact.js';
+import './ai/business-model.js'; // ✅ new section here
 
 export class AiSection extends LitElement {
   static styles = css`
@@ -38,9 +37,8 @@ export class AiSection extends LitElement {
           <the-breakthrough></the-breakthrough>
           <how-it-works></how-it-works>
           <market-timing></market-timing>
-          <ai-research></ai-research>
-          <why-matters></why-matters>
-          <real-possibilities></real-possibilities>
+          <real-impact></real-impact>
+          <business-model></business-model> <!-- ✅ added here -->
         </div>
       </section>
     `;

@@ -86,7 +86,7 @@ export class TheBreakthrough extends LitElement {
           </div>
           <div class="stat">
             <div class="icon">${this.boltIcon()}</div>
-            <div><span class="highlight">10.5×</span> MAC advantage (Speed, Power, Area).</div>
+            <div><span class="highlight">10.5×</span> MAC uplift - breaks the Performance, Power, Area triangle.</div>
           </div>
           <div class="stat">
             ${this.chipIcon()}
