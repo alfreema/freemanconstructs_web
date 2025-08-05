@@ -871,7 +871,9 @@
 <text transform="matrix(0.9447 0 0 1 134.9021 189.4978)" class="st39 st40">—healthcare, inance, retail, and beyond.</text>
 <text transform="matrix(0.9447 0 0 1 134.9021 218.4558)" class="st39 st40">Represents the full spectrum of user-facing</text>
 <text transform="matrix(0.9447 0 0 1 134.9021 247.3455)" class="st39 st40">AI applications and experiences.</text>
-<text transform="matrix(0.9447 0 0 1 134.9021 276.2351)" class="st39 st40">https://t.ly/8JGzQ</text>
+<a xlink:href="https://t.ly/8JGzQ" target="_blank">
+  <text transform="matrix(0.9447 0 0 1 134.9021 276.2351)" class="st39 st40" fill="#2aadd7">https://t.ly/8JGzQ</text>
+</a>
 <text transform="matrix(0.9905 0 0 1 129.5496 82.1716)" class="st41 st42 st43">USER APP</text>
 <text transform="matrix(1 0 0 1 133.1658 129.1902)" class="st42 st44">$1.0 Trillion by 2030</text>
 <g id="Layer_2_3_">
@@ -881,26 +883,34 @@
 	<text transform="matrix(0.9447 0 0 1 55.5906 619.5486)" class="st39 st40">and refining AI models. Includes data </text>
 	<text transform="matrix(0.9447 0 0 1 55.5906 648.5066)" class="st39 st40">pipelines, high-performance infrastructure, </text>
 	<text transform="matrix(0.9447 0 0 1 55.5906 677.3962)" class="st39 st40">and custom training environments.</text>
-	<text transform="matrix(0.9447 0 0 1 55.5906 706.2849)" class="st39 st40">https://t.ly/7G1Dz</text>
+	<a xlink:href="https://t.ly/7G1Dz" target="_blank">
+	<text transform="matrix(0.9447 0 0 1 55.5906 706.2849)" class="st39 st40" fill="#2aadd7">https://t.ly/7G1Dz</text>
+	</a>
 	<text transform="matrix(1 0 0 1 46.9925 970.5232)" class="st42 st44">$360 Billion by 2030</text>
 	<text transform="matrix(0.9905 0 0 1 43.3763 923.5046)" class="st48 st42 st43">SILICON</text>
 	<text transform="matrix(0.9447 0 0 1 48.7288 1001.9412)" class="st39 st40">AI-specific chips including GPUs, TPUs, </text>
 	<text transform="matrix(0.9447 0 0 1 48.7288 1030.8298)" class="st39 st40">ASICs, and licensed IP cores.</text>
 	<text transform="matrix(0.9447 0 0 1 48.7288 1059.7888)" class="st39 st40">The computational foundation of modern </text>
 	<text transform="matrix(0.9447 0 0 1 48.7288 1088.6785)" class="st39 st40">artificial intelligence.</text>
-	<text transform="matrix(0.9447 0 0 1 48.7288 1117.5681)" class="st39 st40">https://tiny.ee/2fv7</text>
+	<a xlink:href="https://tiny.ee/2fv7" target="_blank">
+		<text transform="matrix(0.9447 0 0 1 48.7288 1117.5681)" class="st39 st40" fill="#2aadd7">https://tiny.ee/2fv7</text>
+	</a>
 	<text transform="matrix(1 0 0 1 1578.571 948.5134)" class="st42 st44">$76.7 Billion by 2030</text>
 	<text transform="matrix(0.9905 0 0 1 1517.1423 901.4949)" class="st49 st42 st43">HARDWARE</text>
 	<text transform="matrix(0.9625 0 0 1 1413.1443 992.6599)" class="st39 st50">Physical infrastructure for AI at scale—servers, </text>
 	<text transform="matrix(0.9625 0 0 1 1390.821 1023.1287)" class="st39 st50">edge devices, accelerators. Essential for powering </text>
 	<text transform="matrix(0.9625 0 0 1 1542.7312 1053.5271)" class="st39 st50">both model training and inference.</text>
-	<text transform="matrix(0.9625 0 0 1 1724.8259 1083.9949)" class="st39 st50">https://t.ly/Zctlb</text>
+	<a xlink:href="https://t.ly/Zctlb" target="_blank">
+		<text transform="matrix(0.9625 0 0 1 1724.8259 1083.9949)" class="st39 st50" fill="#2aadd7">https://t.ly/Zctlb</text>
+	</a>
 	<text transform="matrix(1 0 0 1 1534.3123 547.2219)" class="st42 st44">$255 Billion by 2030</text>
 	<text transform="matrix(0.9905 0 0 1 1494.9822 500.2039)" class="st51 st42 st43">INFERENCE</text>
 	<text transform="matrix(0.9625 0 0 1 1425.0056 576.4177)" class="st39 st50">Real-time deployment of trained models </text>
 	<text transform="matrix(0.9625 0 0 1 1453.9353 606.8865)" class="st39 st50">across cloud and edge environments. </text>
 	<text transform="matrix(0.9625 0 0 1 1393.3689 637.2849)" class="st39 st50">Powers voice assistants, image recognition, </text>
 	<text transform="matrix(0.9625 0 0 1 1506.575 667.7537)" class="st39 st50">autonomous systems, and more.</text>
-	<text transform="matrix(0.9625 0 0 1 1646.1345 698.2214)" class="st39 st50">https://t.ly/AB8Fy</text>
+	<a xlink:href="https://t.ly/AB8Fy" target="_blank">
+		<text transform="matrix(0.9625 0 0 1 1646.1345 698.2214)" class="st39 st50" fill="#2aadd7">https://t.ly/AB8Fy</text>
+	</a>
 </g>
 </svg>
