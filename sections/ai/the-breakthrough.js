@@ -18,6 +18,14 @@ export class TheBreakthrough extends LitElement {
       margin-bottom: 2.5rem;
     }
 
+    .statement {
+      margin: 2.5rem auto;
+      max-width: 48rem;
+      text-align: center;
+      font-size: 1.125rem;
+      line-height: 1.75rem;
+    }
+
     .stat-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -79,36 +87,50 @@ export class TheBreakthrough extends LitElement {
     return html`
       <section>
         <h2>Pure Integer Training: A World First</h2>
+
+        <p class="statement">
+          Most AI training relies on power-hungry floating-point math. We’ve replaced it with simpler integer math—unlocking up to <strong>10× gains in speed and energy efficiency</strong>.
+        </p>
+
         <div class="stat-grid">
           <div class="stat">
             ${this.cpuIcon()}
-            <div>Transformer trained with 0 FP ops.</div>
+            <div>AI models have only been trainable with floating-point math.</div>
           </div>
           <div class="stat">
             <div class="icon">${this.boltIcon()}</div>
-            <div><span class="highlight">10.5×</span> MAC uplift - breaks the Performance, Power, Area triangle.</div>
+            <div><span class="highlight">10.5×</span> faster performance with integer math.</div>
           </div>
           <div class="stat">
             ${this.chipIcon()}
-            <div>Enables radically simpler chips.</div>
+            <div>Tenfold unlocks pure-integer AI training.</div>
           </div>
         </div>
-        <div>FP32 vs 32-bit Integer MAC comparison</div>
+
+        <h3 style="margin-top: 80px;">
+          Multiply-Accumulate drives 95% of AI compute—we’ve boosted it 3.8× and project 10×.
+        </h3>
+
+        <p class="statement">
+          At the heart of every AI model is one core operation: <strong>Multiply-Accumulate</strong> (MAC). It's how neural networks do math—multiplying inputs and summing results—over and over, trillions of times per second.
+        </p>
+
+        <p class="statement">
+          GPUs and accelerators spend up to <strong>95% of their time</strong> performing MACs in many models. So we focused there first—analyzing and redesigning the MAC to run on integer math instead of floating point.
+        </p>
+
+        <p class="statement">
+          The result? A <strong>10× leap in speed and energy efficiency</strong>, backed by real hardware data. All while preserving training accuracy.
+        </p>
+
         <performance-bars
           .metrics=${[
-            { label: 'Speed/Area', value: 1.79 },
-            { label: 'Energy/Area', value: 5.98 },
-            { label: 'Speed/Energy', value: 5.27 },
+            { label: 'Current State of the Art GPU MAC: Speed/Energy', value: 1.0 },
+            { label: 'Tenfold validated integer MAC: Speed/Energy', value: 5.27 },
+            { label: 'Tenfold projected optimized integer MAC: Speed/Energy', value: 16.6 },
           ]}
         ></performance-bars>
-        <div style="margin-top: 100px;">Projected FP32 vs Optimized MAC comparison</div>
-        <performance-bars
-          .metrics=${[
-            { label: 'Speed/Area', value: 5.6 },
-            { label: 'Energy/Area', value: 12.6 },
-            { label: 'Speed/Energy', value: 16.6 },
-          ]}
-        ></performance-bars>
+        <p>Floating-point vs Tenfold MAC comparison</p>
       </section>
     `;
   }

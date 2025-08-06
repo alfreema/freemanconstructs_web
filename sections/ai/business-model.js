@@ -28,14 +28,14 @@ export class BusinessModel extends LitElement {
       background: white;
       padding: 2rem;
       border-radius: 1rem;
-      box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15); /* bright blue glow */
+      box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);
       text-align: center;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .phase-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 25px 60px rgba(59, 130, 246, 0.25); /* brighter on hover */
+      box-shadow: 0 25px 60px rgba(59, 130, 246, 0.25);
     }
 
     .icon {
@@ -68,43 +68,43 @@ export class BusinessModel extends LitElement {
   render() {
     return html`
       <section>
-        <div class="section-title">Licensing First. Chips Next.</div>
+        <div class="section-title">Our Roadmap: Licensing First. Chips Next.</div>
         <div class="phase-grid">
-          <!-- Phase 1: De-risk -->
+          <!-- Phase 1: Validate -->
           <div class="phase-card">
             <svg class="icon" viewBox="0 0 24 24">
-              <path d="M3 12h18M12 3v18" />
-              <path d="M4.5 4.5l15 15M19.5 4.5l-15 15" />
+              <polyline points="5 13 9 17 19 7" />
             </svg>
-            <div class="phase-title">Phase 1: De-risk</div>
+            <div class="phase-title">Phase 1: Validate</div>
             <div class="phase-text">
-              Use validated training results to de-risk the pipeline before fabrication.
+              Validate TenFold performs 10x faster than current hardware.
             </div>
           </div>
 
           <!-- Phase 2: RTL to Licensing -->
           <div class="phase-card">
             <svg class="icon" viewBox="0 0 24 24">
-              <path d="M4 4h16v16H4z" />
-              <path d="M9 4v16M15 4v16" />
-              <path d="M4 9h16M4 15h16" />
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 6v6l3 3" />
             </svg>
             <div class="phase-title">Phase 2: RTL → Licensing</div>
             <div class="phase-text">
-              License proven RTL blocks for integer AI acceleration.
+              License TenFold to hardware manufacturing partners.
             </div>
           </div>
 
           <!-- Phase 3: Hardware -->
           <div class="phase-card">
-            <svg class="icon" viewBox="0 0 24 24">
-              <rect x="3" y="6" width="18" height="12" rx="2" />
-              <path d="M7 20h10" />
-              <path d="M9 16v4M15 16v4" />
-            </svg>
+          <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4.5 16.5 3 21l4.5-1.5" />
+            <path d="M12 15c-1.7 0-3.3-.3-4.7-.9a.3.3 0 0 1-.2-.4c.3-1 .9-2.7 2-4.1a11.3 11.3 0 0 1 7.3-4.3l3.1 3.1a11.3 11.3 0 0 1-4.3 7.2c-1.4 1-3.1 1.6-4.2 2a.3.3 0 0 1-.4-.2c-.6-1.3-.9-3-.9-4.7Z" />
+            <path d="m9 9 1 1" />
+            <path d="M17 13a6 6 0 0 0-6-6" />
+          </svg>
+
             <div class="phase-title">Phase 3: Hardware</div>
             <div class="phase-text">
-              Vertically integrate IP into a full accelerator card for hyperscaler and edge deployments.
+              Manufacture and sell Tenfold hardware that improves AI training 10x.
             </div>
           </div>
         </div>

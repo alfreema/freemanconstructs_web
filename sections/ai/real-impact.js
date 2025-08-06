@@ -13,7 +13,8 @@ export class RealImpact extends LitElement {
       text-align: center;
       font-size: 2rem;
       font-weight: 800;
-      margin-bottom: 3rem;
+      padding-bottom: 3rem;
+      padding-top: 3rem;
     }
 
     .impact-grid {
@@ -75,9 +76,9 @@ export class RealImpact extends LitElement {
               <path d="M12 1v22" />
               <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
             </svg>
-            <div class="impact-title">$295M/year Savings</div>
+            <div class="impact-title">Reduce Training Costs</div>
             <div class="impact-text">
-              At scale, a 1GW datacenter could save $295M annually using integer AI compute.
+              At scale, a 1GW datacenter could save <strong>$295M annually</strong> using integer AI compute.
             </div>
           </div>
 
@@ -87,9 +88,9 @@ export class RealImpact extends LitElement {
               <circle cx="12" cy="12" r="10" />
               <circle cx="12" cy="12" r="3" />
             </svg>
-            <div class="impact-title">HAL9000-Level Edge AI</div>
+            <div class="impact-title">Train Models Faster</div>
             <div class="impact-text">
-              On-device models become dramatically smarter—handling vision, voice, and reasoning offline.
+              Integer math runs <strong>10×</script> more efficiently, enabling faster iteration and smarter AI.
             </div>
           </div>
 
@@ -101,9 +102,9 @@ export class RealImpact extends LitElement {
               <circle cx="7.5" cy="16.5" r="1.5" />
               <circle cx="16.5" cy="16.5" r="1.5" />
             </svg>
-            <div class="impact-title">Self-Learning Cars</div>
+            <div class="impact-title">Train Deeper Models</div>
             <div class="impact-text">
-              Autonomous vehicles can learn continuously without cloud dependence.
+              Unlock the ability to train larger, more capable models—even at the edge without cloud dependency.
             </div>
           </div>
         </div>

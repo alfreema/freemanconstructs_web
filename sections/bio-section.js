@@ -62,17 +62,10 @@ export class BioSection extends LitElement {
           <div>
             <h2>Bio: Aaron Freeman</h2>
             <p>
-              Aaron Freeman is a lifelong technologist and entrepreneur. He began coding at age 8, launched a BBS in 1983, and later earned a B.S. in
-              Computer Science and an M.S. in Electrical Engineering (with a focus on computer architecture) from Wichita State University.
-            </p>
+              Aaron Freeman is a technologist, inventor, and founder with deep expertise in computer and software engineering. He holds a B.S. in Computer Science and an M.S. in Electrical Engineering from Wichita State University, where he also taught computer architecture and programming while pursuing a Ph.D.
             <p>
-              While pursuing his Ph.D. he was awarded a Teaching Fellowship, where he taught various programming, computer architecture, genetic algorithms, and other courses.   
-              He founded Adroit, a consulting firm serving major clients including AmeriServe (formerly PepsiCo Food Services). He was awarded a U.S. patent for the first
-              internet-connected sprinkler system (US-7123993-B1) and founded <a href="https://sendthisfile.com" target="_blank">SendThisFile</a>, the first file-transfer-as-a-service platform.
-            </p>
             <p>
-              He and his wife Larissa are active investors and entrepreneurs across sectors including retail, real estate, and infrastructure.
-              He has led development efforts in robotics, cloud, real estate, trading, and AI.
+              Aaron was granted a U.S. patent for the first internet-connected sprinkler system and later founded SendThisFile, the original file-transfer-as-a-service platform. His work spans robotics, cloud infrastructure, real estate, and AI acceleration.
             </p>
           </div>
         </div>

@@ -19,6 +19,14 @@ export class HowItWorks extends LitElement {
       margin-bottom: 2rem;
     }
 
+    .statement {
+      margin: 2.5rem auto;
+      max-width: 48rem;
+      text-align: center;
+      font-size: 1.125rem;
+      line-height: 1.75rem;
+    }
+
     .feature-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -106,6 +114,19 @@ export class HowItWorks extends LitElement {
       font-size: 0.9rem;
       color: #6b7280;
     }
+      
+    a {
+      color: #3b82f6; /* light blue */
+      font-style: italic;
+      font-weight: 500;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      color: #2563eb; /* darker blue on hover */
+    }      
   `;
 
   render() {
@@ -116,15 +137,31 @@ export class HowItWorks extends LitElement {
         <div class="feature-grid">
           ${this.feature(this.encodeIcon(), 'Custom number encoding format')}
           ${this.feature(this.opsIcon(), 'Integer-only matmul, softmax, layernorm, optimizer')}
-          ${this.feature(this.checkIcon(), 'Validated on full Pythia training runs')}
-          ${this.feature(this.chipIcon(), 'Optimized for silicon — training and inference ready')}
+          ${this.feature(this.checkIcon(), 'Complex math functions made integer-friendly')}
+          ${this.feature(this.chipIcon(), 'Integer-only memory and silicon layout')}
         </div>
 
         <pipeline-highlight></pipeline-highlight>
 
+        <h3 style="margin-top: 80px;">
+          Developing IP for radically efficient AI.
+        </h3>
+
+        <p class="statement">
+          Tenfold is still in active development, but the <strong>foundational breakthrough is real</strong>: <strong>pure-integer training is viable</strong>, and early results show <strong>major gains</strong> in performance, power, and area.
+        </p>
+        <p class="statement">
+          We're now scaling up — working to train large transformer models end-to-end using only integer math. Our goal: to offer <strong>licensing-ready IP</strong> that enables radically simpler, faster, and more efficient AI chips.
+        </p>
+        <p class="statement">
+          If you're a chipmaker, systems partner, or investor exploring next-gen AI compute, <a href="#contact"><em>we’d love to talk</em><a/>.
+        </p>
+
+        <!--
         <div class="stack-wrapper">
           <layer-stack></layer-stack>
         </div>
+        -->
       </section>
     `;
   }

@@ -188,8 +188,8 @@ export class MarketTimeline extends LitElement {
       },
       {
         year: '2025',
-        title: 'The Integer Era',
-        desc: 'Integer-based training and inference becomes possible.'
+        title: 'The Tenfold Era',
+        desc: 'Integer-based training becomes possible.'
       }
     ];
 
