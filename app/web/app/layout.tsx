@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { ThemeProvider } from "next-themes";
 import Script from "next/script";
 import "./globals.css";
 
@@ -46,14 +45,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.className} antialiased`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
+        {children}
         {/* Viewport height fix used in original index.html */}
         <Script id="vh-fix" strategy="afterInteractive">{`
           (function(){
