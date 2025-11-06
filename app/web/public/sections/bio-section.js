@@ -56,7 +56,7 @@ export class BioSection extends LitElement {
       <section id="bio">
         <div class="container" data-aos="fade-up">
           <img
-            src="https://raw.githubusercontent.com/alfreema/freemanconstructs_web/main/200x200.jpg"
+            src="/200x200.jpg"
             alt="Aaron Freeman"
           />
           <div>
@@ -65,7 +65,7 @@ export class BioSection extends LitElement {
               Aaron Freeman is a technologist, inventor, and founder with deep expertise in computer and software engineering. He holds a B.S. in Computer Science and an M.S. in Electrical Engineering from Wichita State University, where he also taught computer architecture and programming while pursuing a Ph.D.
             <p>
             <p>
-              Aaron was granted a U.S. patent for the first internet-connected sprinkler system and later founded SendThisFile, the original file-transfer-as-a-service platform. His work spans robotics, cloud infrastructure, real estate, and AI acceleration.
+              Aaron was granted a U.S. patent for the first internet-connected sprinkler system and later founded SendThisFile, the original file-transfer-as-a-service platform. His work spans robotics, cloud infrastructure, and AI acceleration.
             </p>
           </div>
         </div>

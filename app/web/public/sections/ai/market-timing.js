@@ -42,7 +42,7 @@ export class MarketTiming extends LitElement {
     }
 
     .fade-lines div:nth-child(3) {
-      color: #4b5563;
+      color: hsl(var(--muted-foreground));
       font-style: italic;
       opacity: 0.9;
     }

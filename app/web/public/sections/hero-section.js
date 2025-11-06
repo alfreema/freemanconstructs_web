@@ -10,7 +10,8 @@ export class HeroSection extends LitElement {
       height: 100vh;
       color: #555;
       overflow: hidden;
-      font-family: system-ui, sans-serif;
+      /* Inherit site font (Inter via next/font) */
+      font-family: inherit;
     }
 
     .lottie-bg {
