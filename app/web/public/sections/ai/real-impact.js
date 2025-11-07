@@ -5,7 +5,8 @@ export class RealImpact extends LitElement {
     :host {
       display: block;
       padding: 0rem 1.5rem;
-      background: linear-gradient(to bottom, hsl(var(--accent)), hsl(var(--background)));
+      /* Match original bluish gray → white gradient */
+      background: linear-gradient(to bottom, #f9fafb, #ffffff);
       color: hsl(var(--foreground));
     }
 
