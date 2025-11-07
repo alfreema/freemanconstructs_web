@@ -5,8 +5,8 @@ export class BusinessModel extends LitElement {
     :host {
       display: block;
       padding: 8rem 1.5rem 6rem;
-      background: linear-gradient(to bottom, #ffffff, #f9fafb);
-      color: #1f2937;
+      background: hsl(var(--background));
+      color: hsl(var(--foreground));
     }
 
     .section-title {
@@ -14,6 +14,7 @@ export class BusinessModel extends LitElement {
       font-size: 2rem;
       font-weight: 800;
       margin-bottom: 3rem;
+      color: hsl(var(--primary));
     }
 
     .phase-grid {
@@ -25,23 +26,24 @@ export class BusinessModel extends LitElement {
     }
 
     .phase-card {
-      background: white;
+      background: hsl(var(--card));
       padding: 2rem;
       border-radius: 1rem;
-      box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);
+      border: 1px solid hsl(var(--border));
+      box-shadow: 0 20px 40px hsl(var(--primary) / 0.15);
       text-align: center;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .phase-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 25px 60px rgba(59, 130, 246, 0.25);
+      box-shadow: 0 25px 60px hsl(var(--primary) / 0.25);
     }
 
     .icon {
       width: 42px;
       height: 42px;
-      stroke: #3b82f6;
+      stroke: hsl(var(--primary));
       stroke-width: 2;
       fill: none;
       margin-bottom: 1rem;
@@ -60,7 +62,7 @@ export class BusinessModel extends LitElement {
 
     .phase-text {
       font-size: 0.95rem;
-      color: #4b5563;
+      color: hsl(var(--muted-foreground));
       line-height: 1.5;
     }
   `;
