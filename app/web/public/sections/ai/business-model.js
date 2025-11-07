@@ -14,7 +14,7 @@ export class BusinessModel extends LitElement {
       font-size: 2rem;
       font-weight: 800;
       margin-bottom: 3rem;
-      color: hsl(var(--primary));
+      color: hsl(var(--foreground));
     }
 
     .phase-grid {
