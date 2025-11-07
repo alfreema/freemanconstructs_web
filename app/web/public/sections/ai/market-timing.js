@@ -6,7 +6,8 @@ export class MarketTiming extends LitElement {
     :host {
       display: block;
       padding: 6rem 1.5rem;
-      background: white;
+      background: hsl(var(--background));
+      color: hsl(var(--foreground));
     }
 
     .container {
@@ -19,7 +20,7 @@ export class MarketTiming extends LitElement {
       font-size: 2.75rem;
       font-weight: 800;
       line-height: 1.2;
-      color: #111827;
+      color: hsl(var(--foreground));
       margin-bottom: 2.5rem;
     }
 
@@ -29,16 +30,16 @@ export class MarketTiming extends LitElement {
       gap: 1.25rem;
       font-size: 1.25rem;
       font-weight: 500;
-      color: #374151;
+      color: hsl(var(--muted-foreground));
       margin-bottom: 4rem;
     }
 
     .fade-lines div:nth-child(1) {
-      color: #1f2937;
+      color: hsl(var(--foreground));
     }
 
     .fade-lines div:nth-child(2) {
-      color: #1f2937;
+      color: hsl(var(--foreground));
     }
 
     .fade-lines div:nth-child(3) {
