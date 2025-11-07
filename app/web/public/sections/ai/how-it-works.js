@@ -7,15 +7,15 @@ export class HowItWorks extends LitElement {
     :host {
       display: block;
       padding: 4rem 1.5rem;
-      background: #ffffff;
-      color: #1f2937;
+      background: hsl(var(--background));
+      color: hsl(var(--foreground));
       text-align: center;
     }
 
     h2 {
       font-size: 2rem;
       font-weight: 800;
-      color: #111827;
+      color: hsl(var(--foreground));
       margin-bottom: 2rem;
     }
 
@@ -42,8 +42,8 @@ export class HowItWorks extends LitElement {
 
     .feature {
       position: relative;
-      background: #fff;
-      border: 1px solid #e5e7eb;
+      background: hsl(var(--card));
+      border: 1px solid hsl(var(--border));
       border-radius: 0.75rem;
       padding: 2rem 1.5rem 1.5rem;
       display: flex;
@@ -60,12 +60,16 @@ export class HowItWorks extends LitElement {
       left: 0;
       height: 4px;
       width: 100%;
-      background: linear-gradient(to right, #6366f1, #8b5cf6);
+      background: linear-gradient(
+        to right,
+        hsl(var(--brand-primary)),
+        hsl(var(--brand-primary-2))
+      );
     }
 
     .feature:hover {
       transform: translateY(-6px);
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 12px 24px hsl(var(--primary) / 0.12);
     }
 
     .icon-wrapper {
@@ -81,7 +85,11 @@ export class HowItWorks extends LitElement {
       position: absolute;
       width: 3.5rem;
       height: 3.5rem;
-      background: radial-gradient(circle, rgba(99, 102, 241, 0.15), transparent 70%);
+      background: radial-gradient(
+        circle,
+        hsl(var(--primary) / 0.15),
+        transparent 70%
+      );
       border-radius: 9999px;
       z-index: 0;
     }
@@ -94,7 +102,7 @@ export class HowItWorks extends LitElement {
       stroke-linecap: round;
       stroke-linejoin: round;
       fill: none;
-      color: #4f46e5;
+      color: hsl(var(--primary));
       z-index: 1;
       position: relative;
       transition: transform 0.3s ease;
@@ -112,11 +120,11 @@ export class HowItWorks extends LitElement {
       text-align: center;
       margin-top: 0.5rem;
       font-size: 0.9rem;
-      color: #6b7280;
+      color: hsl(var(--muted-foreground));
     }
       
     a {
-      color: #3b82f6; /* light blue */
+      color: hsl(var(--primary));
       font-style: italic;
       font-weight: 500;
       text-decoration: none;
@@ -125,7 +133,7 @@ export class HowItWorks extends LitElement {
 
     a:hover {
       text-decoration: underline;
-      color: #2563eb; /* darker blue on hover */
+      color: hsl(var(--primary));
     }      
   `;
 
