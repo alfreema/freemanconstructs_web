@@ -5,8 +5,8 @@ export class BioSection extends LitElement {
     :host {
       display: block;
       padding: 5rem 1.5rem;
-      background-color: #ffffff;
-      color: #1f2937; /* Tailwind gray-800 */
+      background-color: hsl(var(--background));
+      color: hsl(var(--foreground));
     }
 
     .container {
@@ -36,7 +36,7 @@ export class BioSection extends LitElement {
     h2 {
       font-size: 1.875rem;
       font-weight: 300;
-      color: #6366f1;
+      color: hsl(var(--primary));
       margin-bottom: 1rem;
     }
 
@@ -46,7 +46,7 @@ export class BioSection extends LitElement {
     }
 
     a {
-      color: #6366f1;
+      color: hsl(var(--primary));
       text-decoration: underline;
     }
   `;
