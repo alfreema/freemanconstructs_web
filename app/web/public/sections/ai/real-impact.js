@@ -5,8 +5,8 @@ export class RealImpact extends LitElement {
     :host {
       display: block;
       padding: 0rem 1.5rem;
-      background: linear-gradient(to bottom, #f9fafb, #ffffff);
-      color: #1f2937;
+      background: linear-gradient(to bottom, hsl(var(--accent)), hsl(var(--background)));
+      color: hsl(var(--foreground));
     }
 
     .section-title {
@@ -25,24 +25,25 @@ export class RealImpact extends LitElement {
     }
 
     .impact-card {
-      background: white;
+      background: hsl(var(--card));
       padding: 2rem;
       border-radius: 1rem;
-      box-shadow: 0 20px 40px rgba(255, 0, 128, 0.15); /* pink glow */
+      border: 1px solid hsl(var(--border));
+      box-shadow: 0 20px 40px hsl(var(--primary) / 0.15);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       text-align: center;
     }
 
     .impact-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 25px 50px rgba(255, 0, 128, 0.25);
+      box-shadow: 0 25px 50px hsl(var(--primary) / 0.25);
     }
 
     .icon {
       width: 40px;
       height: 40px;
       margin-bottom: 1rem;
-      stroke: #3b82f6; /* blue-500 */
+      stroke: hsl(var(--primary));
       stroke-width: 2;
       fill: none;
       transition: transform 0.3s ease;
@@ -59,7 +60,7 @@ export class RealImpact extends LitElement {
     }
 
     .impact-text {
-      color: #4b5563;
+      color: hsl(var(--muted-foreground));
       font-size: 0.95rem;
       line-height: 1.4;
     }
@@ -90,7 +91,7 @@ export class RealImpact extends LitElement {
             </svg>
             <div class="impact-title">Train Models Faster</div>
             <div class="impact-text">
-              Integer math runs <strong>10×</script> more efficiently, enabling faster iteration and smarter AI.
+              Integer math runs <strong>10×</strong> more efficiently, enabling faster iteration and smarter AI.
             </div>
           </div>
 
