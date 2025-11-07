@@ -31,14 +31,14 @@ export class RealImpact extends LitElement {
       border-radius: 1rem;
       border: 1px solid hsl(var(--border));
       /* Keep this section's distinct pink glow */
-      box-shadow: 0 20px 40px hsl(var(--impact-glow) / 0.15);
+      box-shadow: 0 20px 40px hsl(var(--pink-glow) / 0.15);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       text-align: center;
     }
 
     .impact-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 25px 50px hsl(var(--impact-glow) / 0.25);
+      box-shadow: 0 25px 50px hsl(var(--pink-glow) / 0.25);
     }
 
     .icon {

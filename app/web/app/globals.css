@@ -13,7 +13,7 @@
     /* Brand */
     --brand-primary: 239 84% 67%; /* indigo-500 */
     --brand-primary-2: 251 95% 66%; /* violet-ish for gradients */
-    --impact-glow: 330 100% 50%; /* pink glow for impact section shadows */
+    --pink-glow: 330 100% 50%; /* pink glow for impact/breakthrough shadows */
     /* Use brand color for primary tokens */
     --primary: var(--brand-primary);
     --primary-foreground: 0 0% 100%;
