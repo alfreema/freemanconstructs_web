@@ -5,8 +5,9 @@ export class ContactSection extends LitElement {
     :host {
       display: block;
       padding: 5rem 1.5rem;
-      background-color: #ffffff;
-      color: #1f2937; /* Tailwind gray-800 */
+      /* Use global theme tokens */
+      background-color: hsl(var(--background));
+      color: hsl(var(--foreground));
     }
 
     .container {
@@ -18,7 +19,7 @@ export class ContactSection extends LitElement {
     h2 {
       font-size: 1.875rem;
       font-weight: 700;
-      color: #6366f1;
+      color: hsl(var(--primary));
       margin-bottom: 1rem;
     }
 
@@ -40,17 +41,25 @@ export class ContactSection extends LitElement {
     }
 
     a {
-      color: #6b7280; /* gray-600 */
+      color: hsl(var(--muted-foreground));
       transition: color 0.2s;
     }
 
     a:hover {
-      color: #6366f1; /* primary */
+      color: hsl(var(--primary));
     }
 
     .icon {
       width: 1.5rem;
       height: 1.5rem;
+    }
+
+    /* Tailwind-like responsive visibility without relying on Tailwind inside shadow DOM */
+    .desktop-only { display: none; }
+    .mobile-only { display: inline; }
+    @media (min-width: 640px) {
+      .desktop-only { display: inline; }
+      .mobile-only { display: none; }
     }
   `;
 
@@ -62,7 +71,7 @@ export class ContactSection extends LitElement {
           <p style="margin-bottom: 300px;">
             Email:
             <span class="email">
-              aaron<span class="hidden sm:inline"> [at] </span><span class="inline sm:hidden">@</span>freemanconstructs.com
+              aaron<span class="desktop-only"> [at] </span><span class="mobile-only">@</span>freemanconstructs.com
             </span>
           </p>
 
