@@ -3,7 +3,7 @@ import Script from "next/script";
 
 export default function Home() {
   return (
-    <main className="text-gray-800 bg-white min-h-screen">
+    <main className="min-h-screen bg-background text-foreground">
       {/* Custom elements rendered from original static site */}
       {/* Header + Sections */}
       <site-header></site-header>
@@ -28,7 +28,7 @@ export default function Home() {
       </div>
 
       {/* Footer */}
-      <footer className="py-6 text-center text-gray-500 text-sm bg-gray-100">
+      <footer className="py-6 text-center text-sm bg-accent text-muted-foreground border-t">
         <p>&copy; 2025 Freeman Constructs.</p>
       </footer>
 
