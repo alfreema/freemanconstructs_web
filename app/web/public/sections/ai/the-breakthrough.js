@@ -39,8 +39,8 @@ export class TheBreakthrough extends LitElement {
       border: 1px solid hsl(var(--border));
       border-radius: 1rem;
       padding: 2rem;
-      /* Distinct glow (shared with impact section) */
-      box-shadow: 0 8px 30px hsl(var(--pink-glow) / 0.35);
+      /* Match impact section pink glow */
+      box-shadow: 0 20px 40px hsl(var(--pink-glow) / 0.15);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -51,6 +51,7 @@ export class TheBreakthrough extends LitElement {
 
     .stat:hover {
       transform: translateY(-4px);
+      box-shadow: 0 25px 50px hsl(var(--pink-glow) / 0.25);
     }
 
     svg {
