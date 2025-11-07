@@ -6,15 +6,16 @@ export class TheBreakthrough extends LitElement {
     :host {
       display: block;
       padding: 4rem 1.5rem;
+      /* Keep original bluish gray → white gradient */
       background: linear-gradient(to bottom, #f9fafb, #ffffff);
-      color: #1f2937;
+      color: hsl(var(--foreground));
       text-align: center;
     }
 
     h2 {
       font-size: 2rem;
       font-weight: 800;
-      color: #111827;
+      color: hsl(var(--foreground));
       margin-bottom: 2.5rem;
     }
 
@@ -34,10 +35,12 @@ export class TheBreakthrough extends LitElement {
     }
 
     .stat {
-      background: white;
+      background: hsl(var(--card));
+      border: 1px solid hsl(var(--border));
       border-radius: 1rem;
       padding: 2rem;
-      box-shadow: 0 8px 30px rgba(232, 121, 249, 0.35);
+      /* Distinct glow for this section */
+      box-shadow: 0 8px 30px hsl(var(--breakthrough-glow, 292 84% 73%) / 0.35);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -53,7 +56,7 @@ export class TheBreakthrough extends LitElement {
     svg {
       width: 2.5rem;
       height: 2.5rem;
-      color: #6366f1;
+      color: hsl(var(--primary));
       stroke: currentColor;
       stroke-width: 2;
       fill: none;
@@ -68,7 +71,7 @@ export class TheBreakthrough extends LitElement {
 
     .note {
       font-size: 0.875rem;
-      color: #6b7280;
+      color: hsl(var(--muted-foreground));
       margin-bottom: 2rem;
     }
 
