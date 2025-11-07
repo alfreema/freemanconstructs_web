@@ -5,8 +5,8 @@ export class AboutSection extends LitElement {
     :host {
       display: block;
       padding: 5rem 1.5rem;
-      background-color: #f3f4f6; /* Tailwind gray-100 */
-      color: #1f2937; /* Tailwind gray-800 */
+      background-color: hsl(var(--accent));
+      color: hsl(var(--foreground));
     }
 
     .container {
@@ -18,7 +18,7 @@ export class AboutSection extends LitElement {
       font-size: 1.875rem;
       font-weight: 300;
       margin-bottom: 1rem;
-      color: #6366f1; /* Tailwind primary */
+      color: hsl(var(--primary));
     }
 
     p {
