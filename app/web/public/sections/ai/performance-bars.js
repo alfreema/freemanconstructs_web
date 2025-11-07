@@ -17,7 +17,7 @@ export class PerformanceBars extends LitElement {
 
     .label {
       font-weight: 600;
-      color: #111827;
+      color: hsl(var(--foreground));
       margin-bottom: 0.5rem;
     }
 
@@ -25,7 +25,7 @@ export class PerformanceBars extends LitElement {
       position: relative;
       width: 100%;
       height: 14px;
-      background-color: #e5e7eb;
+      background-color: hsl(var(--border));
       border-radius: 9999px;
       overflow: hidden;
     }
@@ -33,7 +33,11 @@ export class PerformanceBars extends LitElement {
     .bar-fill {
       height: 100%;
       border-radius: 9999px;
-      background: linear-gradient(to right, #ec4899, #8b5cf6);
+      background: linear-gradient(
+        to right,
+        hsl(var(--brand-primary)),
+        hsl(var(--brand-primary-2))
+      );
       width: 0;
       transition: width 1s ease-in-out;
     }
