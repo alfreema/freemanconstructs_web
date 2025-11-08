@@ -3,7 +3,12 @@ import { LitElement, html, css } from 'https://esm.sh/lit';
 export class PipelineHighlight extends LitElement {
   static styles = css`
     .wrapper {
-      background: radial-gradient(circle at center, rgba(236, 72, 153, 0.06), transparent 80%);
+      /* Soft pink glow using shared token */
+      background: radial-gradient(
+        circle at center,
+        hsl(var(--pink-glow) / 0.06),
+        transparent 80%
+      );
       padding: 1rem 1.5rem;
       border-radius: 1rem;
       display: inline-block;
@@ -22,17 +27,22 @@ export class PipelineHighlight extends LitElement {
     .step {
       padding: 0.3rem 0.85rem;
       border-radius: 9999px;
-      background: #f9fafb;
-      color: #7c3aed;
+      background: hsl(var(--accent));
+      color: hsl(var(--primary));
+      border: 1px solid hsl(var(--border));
       font-weight: 500;
       transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
     }
 
     .step.active {
-      background: linear-gradient(to right, #f472b6, #ec4899);
+      background: linear-gradient(
+        to right,
+        hsl(var(--brand-primary)),
+        hsl(var(--brand-primary-2))
+      );
       color: white;
       transform: scale(1.05);
-      box-shadow: 0 0 0 2px rgba(236, 72, 153, 0.25);
+      box-shadow: 0 0 0 2px hsl(var(--pink-glow) / 0.25);
     }
 
     .arrow-icon {
@@ -41,7 +51,7 @@ export class PipelineHighlight extends LitElement {
     }
 
     .arrow-icon path {
-      stroke: #d1d5db;
+      stroke: hsl(var(--border));
       stroke-width: 2;
       fill: none;
       stroke-linecap: round;
