@@ -4,8 +4,9 @@ export class ProblemScale extends LitElement {
   static styles = css`
     :host {
       display: block;
+      /* Preserve original bluish gray → white gradient */
       background: linear-gradient(to bottom, #f9fafb, #ffffff);
-      color: #1f2937;
+      color: hsl(var(--foreground));
       padding: 6rem 1.5rem;
     }
 
@@ -22,12 +23,12 @@ export class ProblemScale extends LitElement {
       font-size: 2.25rem;
       font-weight: 700;
       margin-bottom: 1.5rem;
-      color: #111827;
+      color: hsl(var(--foreground));
     }
 
     .subtitle {
       font-size: 1.125rem;
-      color: #4b5563;
+      color: hsl(var(--muted-foreground));
       margin-bottom: 3rem;
     }
 
@@ -52,24 +53,25 @@ export class ProblemScale extends LitElement {
       display: flex;
       align-items: flex-start;
       gap: 1rem;
-      background: rgba(255, 255, 255, 0.7);
+      background: hsl(var(--card) / 0.7);
       backdrop-filter: blur(10px);
       border-radius: 0.75rem;
       padding: 1.5rem;
       text-align: left;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03);
+      border: 1px solid hsl(var(--border));
     }
 
     .stat-icon svg {
       width: 1.5rem;
       height: 1.5rem;
-      color: #6366f1;
+      color: hsl(var(--primary));
       flex-shrink: 0;
     }
 
     .stat-text {
       font-size: 1rem;
-      color: #374151;
+      color: hsl(var(--muted-foreground));
     }
 
     @media (max-width: 768px) {
