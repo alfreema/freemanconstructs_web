@@ -5,6 +5,7 @@ export class MarketTimeline extends LitElement {
     :host {
       display: block;
       padding: 0rem 1rem 3rem;
+      /* Preserve original bluish gray → white gradient */
       background: linear-gradient(to bottom, #f9fafb, #ffffff);
     }
 
@@ -22,7 +23,7 @@ export class MarketTimeline extends LitElement {
       transform: translateX(-50%);
       width: 4px;
       height: 100%;
-      background: #e2e8f0;
+      background: hsl(var(--border));
     }
 
     .entry {
@@ -49,7 +50,7 @@ export class MarketTimeline extends LitElement {
       width: 14px;
       height: 14px;
       border-radius: 50%;
-      background: #6366f1;
+      background: hsl(var(--primary));
       position: absolute;
       left: 50%;
       transform: scale(0.5) translateX(-50%);
@@ -62,9 +63,10 @@ export class MarketTimeline extends LitElement {
     }
 
     .entry-content {
-      background: white;
+      background: hsl(var(--card));
       border-radius: 1rem;
       padding: 1.25rem 1.5rem;
+      border: 1px solid hsl(var(--border));
       box-shadow: 0 10px 20px rgba(0,0,0,0.06);
       max-width: 320px;
       position: relative;
@@ -83,28 +85,28 @@ export class MarketTimeline extends LitElement {
     .year {
       font-size: 0.875rem;
       font-weight: 600;
-      color: #64748b;
+      color: hsl(var(--muted-foreground));
       margin-bottom: 0.25rem;
     }
 
     .title {
       font-size: 1rem;
       font-weight: 700;
-      color: #111827;
+      color: hsl(var(--foreground));
       margin-bottom: 0.25rem;
     }
 
     .desc {
       font-size: 0.95rem;
-      color: #374151;
+      color: hsl(var(--muted-foreground));
     }
 
     .entry:last-child .dot {
-      background: #be185d;
+      background: hsl(var(--pink-glow));
     }
 
     .entry:last-child .title {
-      color: #be185d;
+      color: hsl(var(--pink-glow));
     }
 
     @media (max-width: 640px) {
