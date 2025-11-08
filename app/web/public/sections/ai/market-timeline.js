@@ -73,7 +73,8 @@ export class MarketTimeline extends LitElement {
     }
 
     .entry:nth-child(odd) .entry-content {
-      margin-right: 0rem;
+      /* Add breathing room from center line to match even side */
+      margin-right: 2.5rem;
       text-align: left;
     }
 
