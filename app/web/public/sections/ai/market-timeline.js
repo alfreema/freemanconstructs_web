@@ -70,6 +70,8 @@ export class MarketTimeline extends LitElement {
       box-shadow: 0 10px 20px rgba(0,0,0,0.06);
       max-width: 320px;
       position: relative;
+      /* Create vertical space between the center dot and the card */
+      margin-top: 0.5rem;
     }
 
     .entry:nth-child(odd) .entry-content {
