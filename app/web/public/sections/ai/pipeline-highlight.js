@@ -42,7 +42,8 @@ export class PipelineHighlight extends LitElement {
       );
       color: white;
       transform: scale(1.05);
-      box-shadow: 0 0 0 2px hsl(var(--pink-glow) / 0.25);
+      /* Remove pink ring for a cleaner look */
+      box-shadow: none;
     }
 
     .arrow-icon {
