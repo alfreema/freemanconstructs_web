@@ -89,25 +89,9 @@ export class SiteHeader extends LitElement {
       fontSize: '13px',
       color: '#111827',
     });
-    const itemPng = document.createElement('button');
-    itemPng.type = 'button';
-    itemPng.textContent = 'Copy logo (PNG) to clipboard';
-    Object.assign(itemPng.style, {
-      display: 'block',
-      width: '100%',
-      textAlign: 'left',
-      padding: '8px 12px',
-      background: 'transparent',
-      border: 'none',
-      cursor: 'pointer',
-    });
-    itemPng.addEventListener('click', async () => {
-      this.#removeLogoMenu();
-      await this.#copyLogoAsPng();
-    });
     const itemSvg = document.createElement('button');
     itemSvg.type = 'button';
-    itemSvg.textContent = 'Copy logo (SVG as text)';
+    itemSvg.textContent = 'Copy logo to clipboard';
     Object.assign(itemSvg.style, {
       display: 'block',
       width: '100%',
@@ -121,7 +105,6 @@ export class SiteHeader extends LitElement {
       this.#removeLogoMenu();
       await this.#copyLogoAsSvgText();
     });
-    menu.appendChild(itemPng);
     menu.appendChild(itemSvg);
     document.body.appendChild(menu);
 
@@ -147,23 +130,6 @@ export class SiteHeader extends LitElement {
   #removeLogoMenu() {
     const existing = document.querySelector('div[data-fc-menu="logo"]');
     if (existing) existing.remove();
-  }
-
-  async #copyLogoAsPng() {
-    try {
-      if (navigator.clipboard && 'write' in navigator.clipboard && window.ClipboardItem) {
-        const png = await this.#svgToPngBlob('/freeman_constructs.svg');
-        if (!png) throw new Error('PNG generation failed');
-        const item = new ClipboardItem({ 'image/png': png });
-        await navigator.clipboard.write([item]);
-        this.#showToast('Logo copied to clipboard');
-      } else {
-        this.#showToast('Clipboard image not supported');
-      }
-    } catch (err) {
-      this.#showToast('Copy failed');
-      console.error('PNG copy failed', err);
-    }
   }
 
   async #copyLogoAsSvgText() {
@@ -196,32 +162,6 @@ export class SiteHeader extends LitElement {
       document.execCommand('copy');
     } finally {
       ta.remove();
-    }
-  }
-
-  async #svgToPngBlob(path) {
-    const res = await fetch(path);
-    const svgText = await res.text();
-    const blob = new Blob([svgText], { type: 'image/svg+xml' });
-    const url = URL.createObjectURL(blob);
-    try {
-      const img = await new Promise((resolve, reject) => {
-        const image = new Image();
-        image.onload = () => resolve(image);
-        image.onerror = reject;
-        image.src = url;
-      });
-      const width = img.naturalWidth || 1450;
-      const height = img.naturalHeight || 340;
-      const canvas = document.createElement('canvas');
-      canvas.width = width;
-      canvas.height = height;
-      const ctx = canvas.getContext('2d');
-      ctx.drawImage(img, 0, 0, width, height);
-      const pngBlob = await new Promise((resolve) => canvas.toBlob(resolve, 'image/png'));
-      return pngBlob;
-    } finally {
-      URL.revokeObjectURL(url);
     }
   }
 
