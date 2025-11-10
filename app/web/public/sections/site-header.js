@@ -17,8 +17,21 @@ export class SiteHeader extends LitElement {
       margin: 0 auto;
       padding: 1rem 1.5rem;
       display: flex;
-      justify-content: center;
+      justify-content: center; /* keep menu centered */
       align-items: center;
+      position: relative; /* allow absolutely positioned logo */
+    }
+    .logo {
+      position: absolute;
+      left: 1.5rem; /* matches nav horizontal padding */
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .logo img {
+      height: 28px;
+      width: auto;
+      display: block;
     }
     a {
       margin: 0 0.75rem;
@@ -37,6 +50,9 @@ export class SiteHeader extends LitElement {
     return html`
       <header>
         <nav>
+          <a class="logo" href="#home" aria-label="Freeman Constructs">
+            <img src="/freeman_constructs.png" alt="Freeman Constructs" />
+          </a>
           <a href="#home">Home</a>
           <a href="#ai">AI</a>
           <a href="#about">About</a>
