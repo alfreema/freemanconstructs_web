@@ -91,9 +91,16 @@ export class SiteHeader extends LitElement {
     });
     const itemSvg = document.createElement('button');
     itemSvg.type = 'button';
-    itemSvg.textContent = 'Copy logo to clipboard';
+    itemSvg.innerHTML = `
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+        <rect x="9" y="9" width="13" height="13" rx="2"/>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+      </svg>
+      <span>Copy logo to clipboard</span>`;
     Object.assign(itemSvg.style, {
-      display: 'block',
+      display: 'flex',
+      alignItems: 'center',
+      gap: '8px',
       width: '100%',
       textAlign: 'left',
       padding: '8px 12px',
@@ -109,9 +116,17 @@ export class SiteHeader extends LitElement {
 
     const itemDl = document.createElement('button');
     itemDl.type = 'button';
-    itemDl.textContent = 'Download brand assets (ZIP)';
+    itemDl.innerHTML = `
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+        <polyline points="7 10 12 15 17 10"/>
+        <line x1="12" y1="15" x2="12" y2="3"/>
+      </svg>
+      <span>Download brand assets (ZIP)</span>`;
     Object.assign(itemDl.style, {
-      display: 'block',
+      display: 'flex',
+      alignItems: 'center',
+      gap: '8px',
       width: '100%',
       textAlign: 'left',
       padding: '8px 12px',
