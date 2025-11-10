@@ -23,7 +23,7 @@ export class SiteHeader extends LitElement {
     }
     .logo {
       position: absolute;
-      left: 1.5rem; /* matches nav horizontal padding */
+      left: 3rem; /* bring logo further right from the edge */
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
