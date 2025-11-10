@@ -29,7 +29,7 @@ export class SiteHeader extends LitElement {
       gap: 0.5rem;
     }
     .logo img {
-      height: 28px;
+      height: 44px;
       width: auto;
       display: block;
     }
