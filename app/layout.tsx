@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import Script from "next/script";
+import localFont from "next/font/local";
 import "./globals.css";
 
 const defaultUrl = process.env.VERCEL_URL
@@ -23,10 +23,15 @@ export const metadata: Metadata = {
   manifest: "/site.webmanifest",
 };
 
-const inter = Inter({
+// Local Inter font to avoid network fetch during build
+const inter = localFont({
   variable: "--font-inter",
   display: "swap",
-  subsets: ["latin"],
+  preload: true,
+  src: [
+    { path: "./fonts/inter/InterVariable.woff2", style: "normal", weight: "100 900" },
+    { path: "./fonts/inter/InterVariable-Italic.woff2", style: "italic", weight: "100 900" },
+  ],
 });
 
 export default function RootLayout({
@@ -44,7 +49,13 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className={`${inter.className} antialiased`}>
+      <body
+        className={`${inter.variable} font-sans antialiased`}
+        data-aos-easing="ease"
+        data-aos-duration="400"
+        data-aos-delay="0"
+        suppressHydrationWarning
+      >
         {children}
         {/* Viewport height fix used in original index.html */}
         <Script id="vh-fix" strategy="afterInteractive">{`
@@ -58,12 +69,7 @@ export default function RootLayout({
             setRealVh();
           })();
         `}</Script>
-        {/* Optional: Lucide icons for contact section */}
-        <Script
-          id="lucide-umd"
-          src="https://unpkg.com/lucide@1.80.0/dist/umd/lucide.min.js"
-          strategy="afterInteractive"
-        />
+        {/* Optional external icon script removed to satisfy TS types */}
       </body>
     </html>
   );
