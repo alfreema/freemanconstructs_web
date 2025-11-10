@@ -21,6 +21,12 @@ export class SiteHeader extends LitElement {
       align-items: center;
       position: relative; /* allow absolutely positioned logo */
     }
+    .menu {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+    }
     .logo {
       position: absolute;
       left: 8rem; /* move logo significantly closer to the menu */
@@ -44,6 +50,23 @@ export class SiteHeader extends LitElement {
     a:hover {
       color: #6366f1; /* Tailwind primary */
     }
+
+    /* Mobile: stack logo above menu */
+    @media (max-width: 640px) {
+      nav {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .logo {
+        position: static;
+        left: auto;
+        margin-bottom: 0.25rem;
+      }
+      .menu {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+    }
   `;
 
   render() {
@@ -53,11 +76,13 @@ export class SiteHeader extends LitElement {
           <a class="logo" href="#home" aria-label="Freeman Constructs">
             <img src="/freeman_constructs.svg" alt="Freeman Constructs" />
           </a>
-          <a href="#home">Home</a>
-          <a href="#ai">AI</a>
-          <a href="#about">About</a>
-          <a href="#bio">Bio</a>
-          <a href="#contact">Contact</a>
+          <div class="menu">
+            <a href="#home">Home</a>
+            <a href="#ai">AI</a>
+            <a href="#about">About</a>
+            <a href="#bio">Bio</a>
+            <a href="#contact">Contact</a>
+          </div>
         </nav>
       </header>
     `;
