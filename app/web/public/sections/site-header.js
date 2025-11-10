@@ -51,8 +51,8 @@ export class SiteHeader extends LitElement {
       color: #6366f1; /* Tailwind primary */
     }
 
-    /* Mobile: stack logo above menu */
-    @media (max-width: 640px) {
+    /* Stack logo above menu at ≤1024px */
+    @media (max-width: 1024px) {
       nav {
         flex-direction: column;
         gap: 0.5rem;
