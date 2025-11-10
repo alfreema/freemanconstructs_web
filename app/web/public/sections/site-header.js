@@ -51,7 +51,7 @@ export class SiteHeader extends LitElement {
       <header>
         <nav>
           <a class="logo" href="#home" aria-label="Freeman Constructs">
-            <img src="/freeman_constructs.png" alt="Freeman Constructs" />
+            <img src="/freeman_constructs.svg" alt="Freeman Constructs" />
           </a>
           <a href="#home">Home</a>
           <a href="#ai">AI</a>
