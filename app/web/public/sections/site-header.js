@@ -69,18 +69,83 @@ export class SiteHeader extends LitElement {
     }
   `;
 
-  // Copy the SVG logo to clipboard on right-click (context menu)
-  async copyLogoToClipboard(e) {
+  // Show a small context menu with a "Copy logo to clipboard" action
+  showLogoMenu(e) {
     e.preventDefault();
+    this.#removeLogoMenu();
+    const menu = document.createElement('div');
+    menu.dataset.fcMenu = 'logo';
+    Object.assign(menu.style, {
+      position: 'fixed',
+      top: `${e.clientY}px`,
+      left: `${e.clientX}px`,
+      background: 'white',
+      border: '1px solid rgba(0,0,0,0.1)',
+      borderRadius: '8px',
+      boxShadow: '0 8px 24px rgba(0,0,0,0.12)',
+      padding: '6px 0',
+      minWidth: '200px',
+      zIndex: '10000',
+      fontSize: '13px',
+      color: '#111827',
+    });
+    const item = document.createElement('button');
+    item.type = 'button';
+    item.textContent = 'Copy logo to clipboard';
+    Object.assign(item.style, {
+      display: 'block',
+      width: '100%',
+      textAlign: 'left',
+      padding: '8px 12px',
+      background: 'transparent',
+      border: 'none',
+      cursor: 'pointer',
+    });
+    item.addEventListener('click', async () => {
+      this.#removeLogoMenu();
+      await this.#copyLogoPreferred();
+    });
+    menu.appendChild(item);
+    document.body.appendChild(menu);
+
+    const onDocClick = (evt) => {
+      if (!menu.contains(evt.target)) {
+        this.#removeLogoMenu();
+        document.removeEventListener('click', onDocClick, true);
+        document.removeEventListener('keydown', onKey, true);
+      }
+    };
+    const onKey = (evt) => {
+      if (evt.key === 'Escape') {
+        this.#removeLogoMenu();
+        document.removeEventListener('click', onDocClick, true);
+        document.removeEventListener('keydown', onKey, true);
+      }
+    };
+    document.addEventListener('click', onDocClick, true);
+    document.addEventListener('keydown', onKey, true);
+    return false;
+  }
+
+  #removeLogoMenu() {
+    const existing = document.querySelector('div[data-fc-menu="logo"]');
+    if (existing) existing.remove();
+  }
+
+  async #copyLogoPreferred() {
     try {
-      const res = await fetch('/freeman_constructs.svg');
-      const svgText = await res.text();
-      // Try rich clipboard with image/svg+xml; fall back to plain text
+      // Prefer copying PNG for broad clipboard support; fallback to SVG text
       if (navigator.clipboard && 'write' in navigator.clipboard && window.ClipboardItem) {
-        const item = new ClipboardItem({ 'image/svg+xml': new Blob([svgText], { type: 'image/svg+xml' }) });
+        const png = await this.#svgToPngBlob('/freeman_constructs.svg');
+        const item = new ClipboardItem({ 'image/png': png });
         await navigator.clipboard.write([item]);
         this.#showToast('Logo copied to clipboard');
-      } else if (navigator.clipboard && 'writeText' in navigator.clipboard) {
+        return;
+      }
+      // Fallback to SVG text
+      const res = await fetch('/freeman_constructs.svg');
+      const svgText = await res.text();
+      if (navigator.clipboard && 'writeText' in navigator.clipboard) {
         await navigator.clipboard.writeText(svgText);
         this.#showToast('Logo SVG copied as text');
       } else {
@@ -91,7 +156,32 @@ export class SiteHeader extends LitElement {
       // eslint-disable-next-line no-console
       console.error('Logo copy failed', err);
     }
-    return false;
+  }
+
+  async #svgToPngBlob(path) {
+    const res = await fetch(path);
+    const svgText = await res.text();
+    const blob = new Blob([svgText], { type: 'image/svg+xml' });
+    const url = URL.createObjectURL(blob);
+    try {
+      const img = await new Promise((resolve, reject) => {
+        const image = new Image();
+        image.onload = () => resolve(image);
+        image.onerror = reject;
+        image.src = url;
+      });
+      const width = img.naturalWidth || 1450;
+      const height = img.naturalHeight || 340;
+      const canvas = document.createElement('canvas');
+      canvas.width = width;
+      canvas.height = height;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0, width, height);
+      const pngBlob = await new Promise((resolve) => canvas.toBlob(resolve, 'image/png'));
+      return pngBlob;
+    } finally {
+      URL.revokeObjectURL(url);
+    }
   }
 
   #showToast(message) {
@@ -126,7 +216,7 @@ export class SiteHeader extends LitElement {
     return html`
       <header>
         <nav>
-          <a class="logo" href="#home" aria-label="Freeman Constructs" title="Right-click to copy logo" @contextmenu=${this.copyLogoToClipboard}>
+          <a class="logo" href="#home" aria-label="Freeman Constructs" title="Right-click for options" @contextmenu=${this.showLogoMenu}>
             <img src="/freeman_constructs.svg" alt="Freeman Constructs" />
           </a>
           <div class="menu">
