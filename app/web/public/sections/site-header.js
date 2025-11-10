@@ -106,6 +106,25 @@ export class SiteHeader extends LitElement {
       await this.#copyLogoAsSvgText();
     });
     menu.appendChild(itemSvg);
+
+    const itemDl = document.createElement('button');
+    itemDl.type = 'button';
+    itemDl.textContent = 'Download brand assets (ZIP)';
+    Object.assign(itemDl.style, {
+      display: 'block',
+      width: '100%',
+      textAlign: 'left',
+      padding: '8px 12px',
+      background: 'transparent',
+      border: 'none',
+      cursor: 'pointer',
+      borderTop: '1px solid rgba(0,0,0,0.06)'
+    });
+    itemDl.addEventListener('click', () => {
+      this.#removeLogoMenu();
+      this.#downloadBrandAssets();
+    });
+    menu.appendChild(itemDl);
     document.body.appendChild(menu);
 
     const onDocClick = (evt) => {
@@ -163,6 +182,15 @@ export class SiteHeader extends LitElement {
     } finally {
       ta.remove();
     }
+  }
+
+  #downloadBrandAssets() {
+    const a = document.createElement('a');
+    a.href = '/brand-assets.zip';
+    a.download = 'brand-assets.zip';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
   }
 
   #showToast(message) {
