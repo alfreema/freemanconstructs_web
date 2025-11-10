@@ -89,10 +89,10 @@ export class SiteHeader extends LitElement {
       fontSize: '13px',
       color: '#111827',
     });
-    const item = document.createElement('button');
-    item.type = 'button';
-    item.textContent = 'Copy logo to clipboard';
-    Object.assign(item.style, {
+    const itemPng = document.createElement('button');
+    itemPng.type = 'button';
+    itemPng.textContent = 'Copy logo (PNG) to clipboard';
+    Object.assign(itemPng.style, {
       display: 'block',
       width: '100%',
       textAlign: 'left',
@@ -101,11 +101,28 @@ export class SiteHeader extends LitElement {
       border: 'none',
       cursor: 'pointer',
     });
-    item.addEventListener('click', async () => {
+    itemPng.addEventListener('click', async () => {
       this.#removeLogoMenu();
-      await this.#copyLogoPreferred();
+      await this.#copyLogoAsPng();
     });
-    menu.appendChild(item);
+    const itemSvg = document.createElement('button');
+    itemSvg.type = 'button';
+    itemSvg.textContent = 'Copy logo (SVG as text)';
+    Object.assign(itemSvg.style, {
+      display: 'block',
+      width: '100%',
+      textAlign: 'left',
+      padding: '8px 12px',
+      background: 'transparent',
+      border: 'none',
+      cursor: 'pointer',
+    });
+    itemSvg.addEventListener('click', async () => {
+      this.#removeLogoMenu();
+      await this.#copyLogoAsSvgText();
+    });
+    menu.appendChild(itemPng);
+    menu.appendChild(itemSvg);
     document.body.appendChild(menu);
 
     const onDocClick = (evt) => {
@@ -132,29 +149,53 @@ export class SiteHeader extends LitElement {
     if (existing) existing.remove();
   }
 
-  async #copyLogoPreferred() {
+  async #copyLogoAsPng() {
     try {
-      // Prefer copying PNG for broad clipboard support; fallback to SVG text
       if (navigator.clipboard && 'write' in navigator.clipboard && window.ClipboardItem) {
         const png = await this.#svgToPngBlob('/freeman_constructs.svg');
+        if (!png) throw new Error('PNG generation failed');
         const item = new ClipboardItem({ 'image/png': png });
         await navigator.clipboard.write([item]);
         this.#showToast('Logo copied to clipboard');
-        return;
+      } else {
+        this.#showToast('Clipboard image not supported');
       }
-      // Fallback to SVG text
+    } catch (err) {
+      this.#showToast('Copy failed');
+      console.error('PNG copy failed', err);
+    }
+  }
+
+  async #copyLogoAsSvgText() {
+    try {
       const res = await fetch('/freeman_constructs.svg');
       const svgText = await res.text();
       if (navigator.clipboard && 'writeText' in navigator.clipboard) {
         await navigator.clipboard.writeText(svgText);
         this.#showToast('Logo SVG copied as text');
       } else {
-        this.#showToast('Clipboard not supported');
+        // Fallback using execCommand
+        this.#copyViaExecCommand(svgText);
+        this.#showToast('Logo SVG copied as text');
       }
     } catch (err) {
       this.#showToast('Copy failed');
-      // eslint-disable-next-line no-console
-      console.error('Logo copy failed', err);
+      console.error('SVG text copy failed', err);
+    }
+  }
+
+  #copyViaExecCommand(text) {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.top = '-9999px';
+    document.body.appendChild(ta);
+    ta.focus();
+    ta.select();
+    try {
+      document.execCommand('copy');
+    } finally {
+      ta.remove();
     }
   }
 
