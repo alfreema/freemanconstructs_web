@@ -237,18 +237,30 @@ export class SiteHeader extends LitElement {
   }
 
   render() {
+    // Compute hrefs that behave well across routes
+    const linkHref = (id) => {
+      const path = (typeof window !== 'undefined' && window.location && window.location.pathname) || '/';
+      const notRoot = path !== '/';
+      const isKansas = path.startsWith('/kansas');
+      // Keep Bio/Contact on the Kansas page; otherwise link to home anchors
+      if (id === 'bio' || id === 'contact') {
+        return isKansas ? `#${id}` : `/#${id}`;
+      }
+      // Home/AI/About should take you to the homepage anchors when not on root
+      return notRoot ? `/#${id}` : `#${id}`;
+    };
     return html`
       <header>
         <nav>
-          <a class="logo" href="#home" aria-label="Freeman Constructs" title="Right-click for options" @contextmenu=${this.showLogoMenu}>
+          <a class="logo" href="${linkHref('home')}" aria-label="Freeman Constructs" title="Right-click for options" @contextmenu=${this.showLogoMenu}>
             <img src="/freeman_constructs.svg" alt="Freeman Constructs" />
           </a>
           <div class="menu">
-            <a href="#home">Home</a>
-            <a href="#ai">AI</a>
-            <a href="#about">About</a>
-            <a href="#bio">Bio</a>
-            <a href="#contact">Contact</a>
+            <a href="${linkHref('home')}">Home</a>
+            <a href="${linkHref('ai')}">AI</a>
+            <a href="${linkHref('about')}">About</a>
+            <a href="${linkHref('bio')}">Bio</a>
+            <a href="${linkHref('contact')}">Contact</a>
           </div>
         </nav>
       </header>

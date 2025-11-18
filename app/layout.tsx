@@ -69,6 +69,25 @@ export default function RootLayout({
             setRealVh();
           })();
         `}</Script>
+        {/* Ensure hash links scroll after route changes and on load */}
+        <Script id="hash-scroll" strategy="afterInteractive">{`
+          (function() {
+            function scrollToHash() {
+              if (location.hash) {
+                const id = location.hash.slice(1);
+                const el = document.getElementById(id);
+                if (el) {
+                  el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+              }
+            }
+            window.addEventListener('hashchange', function() {
+              setTimeout(scrollToHash, 0);
+            });
+            // handle initial load with a hash or client navigation
+            setTimeout(scrollToHash, 0);
+          })();
+        `}</Script>
         {/* Optional external icon script removed to satisfy TS types */}
       </body>
     </html>
