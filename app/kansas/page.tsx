@@ -58,6 +58,22 @@ const entries: TimelineEntry[] = [
       "An unintended but happy consequence of hacking the U30 Alveo is I am getting more familiar with Vivado.",
       "Hard stop on U30 - reverse engineering not feasible in reasonable time.  Investigate U50/U200/U250.",
       "U50 looks 'okay' as AI says I may be able to squeeze a 32x32 systolic array onto it, but I'm skeptical. For not a lot more money a U200/U250 might make a bunch more sense. Starting to build the simulations in Vivado to sort it out.",
+      "Attended grantee introduction event and met some great project founders and mentors!",
+      "2025-11-21 – Just had an exciting result!  I was able to sythesize/implement the BF16 baseline and Q16A proprietary encodings on Vivado.  Only ran 2x2 array for quick comparison but got:  \"Both Q16A flows are dramatically better than BF16 on performance and logic area: ≈2.6–3.5× Fmax and ≈3×–3.5× smaller LUT+10*DSP, with essentially identical or slightly better total on‑chip power (~1% lower). The enhanced Q16A design is the strongest across all three dimensions: highest Fmax (~3.5× BF16), best logic area (~3.45×), and the lowest power, yielding an overall PPA gain of about 2.3× vs BF16. Based purely on these numbers, I’d use the enhanced Q16A configuration as the headline comparison against BF16, with the baseline Q16A as a slightly more conservative but still ~2× PPA improvement point.\"",
+    ],
+    expenses: [],
+    balance: "$14,500",
+  },
+  {
+    week: "Week of Dec 1",
+    highlight:
+      "Compiled new Nangate45 ASIC results, and holy smokes are they awesome!",
+    details: [
+      "Have stunning results for 4x4, 8x8, 12x12 systolic arrays.",
+      "Also have 14x14 and 16x16 results but OpenROAD is struggling with my workstation limits (64GB RAM, Intel i7-10700K).",
+      "Created Defense Bible draft.",
+      "Created One Pager.",
+      "Created new website home page.",
     ],
     expenses: [],
     balance: "$14,500",

@@ -238,10 +238,11 @@ export class SiteHeader extends LitElement {
 
   render() {
     // Compute hrefs that behave well across routes
+    const path = (typeof window !== 'undefined' && window.location && window.location.pathname) || '/';
+    const notRoot = path !== '/';
+    const isKansas = path.startsWith('/kansas');
+
     const linkHref = (id) => {
-      const path = (typeof window !== 'undefined' && window.location && window.location.pathname) || '/';
-      const notRoot = path !== '/';
-      const isKansas = path.startsWith('/kansas');
       // Keep Bio/Contact on the Kansas page; otherwise link to home anchors
       if (id === 'bio' || id === 'contact') {
         return isKansas ? `#${id}` : `/#${id}`;
@@ -257,8 +258,8 @@ export class SiteHeader extends LitElement {
           </a>
           <div class="menu">
             <a href="${linkHref('home')}">Home</a>
-            <a href="${linkHref('ai')}">AI</a>
-            <a href="${linkHref('about')}">About</a>
+            ${!isKansas ? html`<a href="${linkHref('ai')}">AI</a>` : ''}
+            ${!isKansas ? html`<a href="${linkHref('about')}">About</a>` : ''}
             <a href="${linkHref('bio')}">Bio</a>
             <a href="${linkHref('contact')}">Contact</a>
           </div>
