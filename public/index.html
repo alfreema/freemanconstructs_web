@@ -54,20 +54,79 @@
         ≈$175M annual energy savings per 1 GW datacenter
       </div>
 
-      <div class="mt-6 rounded-md border border-slate-800 bg-black/60 px-6 py-5 text-center shadow-md">
-        <p class="text-2xl font-semibold text-white">
-          Current Stage
-        </p>
-	        <div class="mt-3 space-y-1.5 text-left text-base text-white/80">
-	          <p>• Pure-integer systolic GEMM core and RTL complete and validated</p>
-	          <p>• Full P&amp;R and timing closure on AMD Versal V80 (32×32 array)</p>
-	          <p>• Early ASIC feasibility sweeps complete on Nangate45</p>
-	          <p>• Zero detectable accuracy loss on full Pythia-1B and Pythia-12B training runs</p>
+	      <div class="mt-8 text-left max-w-md mx-auto">
+	        <p class="text-xs font-semibold tracking-[0.18em] text-white/60 uppercase">
+	          Current Stage
+	        </p>
+
+	        <div class="mt-4 space-y-4">
+	          <div class="flex items-start gap-3">
+	            <div class="mt-1 flex h-6 w-6 items-center justify-center rounded-full bg-[#56c4f7]/10 text-sm">
+	              🧮
+	            </div>
+	            <div>
+	              <p class="text-sm font-semibold text-white">
+	                Pure-integer GEMM core complete
+	              </p>
+	              <p class="mt-0.5 text-sm text-white/70">
+	                Fully validated systolic array RTL.
+	              </p>
+	            </div>
+	          </div>
+
+	          <div class="border-t border-white/10"></div>
+
+	          <div class="flex items-start gap-3 pt-2">
+	            <div class="mt-1 flex h-6 w-6 items-center justify-center rounded-full bg-[#56c4f7]/10 text-sm">
+	              ⏱
+	            </div>
+	            <div>
+	              <p class="text-sm font-semibold text-white">
+	                Versal V80 implementation closed
+	              </p>
+	              <p class="mt-0.5 text-sm text-white/70">
+	                32×32 array meets full P&amp;R and timing.
+	              </p>
+	            </div>
+	          </div>
+
+	          <div class="border-t border-white/10"></div>
+
+	          <div class="flex items-start gap-3 pt-2">
+	            <div class="mt-1 flex h-6 w-6 items-center justify-center rounded-full bg-[#56c4f7]/10 text-sm">
+	              🔌
+	            </div>
+	            <div>
+	              <p class="text-sm font-semibold text-white">
+	                ASIC feasibility confirmed
+	              </p>
+	              <p class="mt-0.5 text-sm text-white/70">
+	                Nangate45 sweeps show clean area and power margins.
+	              </p>
+	            </div>
+	          </div>
+
+	          <div class="border-t border-white/10"></div>
+
+	          <div class="flex items-start gap-3 pt-2">
+	            <div class="mt-1 flex h-6 w-6 items-center justify-center rounded-full bg-[#56c4f7]/10 text-sm">
+	              📈
+	            </div>
+	            <div>
+	              <p class="text-sm font-semibold text-white">
+	                Pythia-1B &amp; 12B training validated
+	              </p>
+	              <p class="mt-0.5 text-sm text-white/70">
+	                Zero detectable accuracy loss end-to-end.
+	              </p>
+	            </div>
+	          </div>
 	        </div>
-	        <p class="mt-6 text-center text-base text-white/80">
+
+	        <p class="mt-6 text-xs sm:text-sm text-white/70">
 	          We are in active technical discussions with select packaging, ASIC design, and hyperscaler partners.
 	        </p>
-      </div>
+	      </div>
       
       <div class="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
         <!--
