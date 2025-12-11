@@ -1,6 +1,6 @@
-/// <reference path="../../types/custom-elements.d.ts" />
 "use client";
 import * as React from "react";
+import Script from "next/script";
 
 type TimelineEntry = {
   week: string;
@@ -172,17 +172,19 @@ export default function KansasPage() {
       </footer>
 
       {/* Load AOS JS and init (as on home) */}
-      <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-      <script
+      <Script src="https://unpkg.com/aos@next/dist/aos.js" strategy="afterInteractive" />
+      <Script
+        id="aos-init-kansas"
+        strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: "window.AOS&&window.AOS.init&&window.AOS.init();",
         }}
       />
 
       {/* Load custom elements used for the header and sections */}
-      <script src="/sections/site-header.js" type="module"></script>
-      <script src="/sections/bio-section.js" type="module"></script>
-      <script src="/sections/contact-section.js" type="module"></script>
+      <Script src="/sections/site-header.js" type="module" strategy="afterInteractive" />
+      <Script src="/sections/bio-section.js" type="module" strategy="afterInteractive" />
+      <Script src="/sections/contact-section.js" type="module" strategy="afterInteractive" />
     </main>
   );
 }

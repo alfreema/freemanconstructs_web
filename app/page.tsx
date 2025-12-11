@@ -1,6 +1,6 @@
-/// <reference path="../types/custom-elements.d.ts" />
 "use client";
 import * as React from "react";
+import Script from "next/script";
 
 export default function Home() {
   return (
@@ -34,16 +34,22 @@ export default function Home() {
       </footer>
 
       {/* Load AOS JS and init */}
-      <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-      <script dangerouslySetInnerHTML={{ __html: "window.AOS&&window.AOS.init&&window.AOS.init();" }} />
+      <Script src="https://unpkg.com/aos@next/dist/aos.js" strategy="afterInteractive" />
+      <Script
+        id="aos-init-home"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: "window.AOS&&window.AOS.init&&window.AOS.init();",
+        }}
+      />
 
       {/* Load custom elements modules from public/ */}
-      <script src="/sections/site-header.js" type="module"></script>
-      <script src="/sections/hero-section.js" type="module"></script>
-      <script src="/sections/ai-section.js" type="module"></script>
-      <script src="/sections/about-section.js" type="module"></script>
-      <script src="/sections/bio-section.js" type="module"></script>
-      <script src="/sections/contact-section.js" type="module"></script>
+      <Script src="/sections/site-header.js" type="module" strategy="afterInteractive" />
+      <Script src="/sections/hero-section.js" type="module" strategy="afterInteractive" />
+      <Script src="/sections/ai-section.js" type="module" strategy="afterInteractive" />
+      <Script src="/sections/about-section.js" type="module" strategy="afterInteractive" />
+      <Script src="/sections/bio-section.js" type="module" strategy="afterInteractive" />
+      <Script src="/sections/contact-section.js" type="module" strategy="afterInteractive" />
     </main>
   );
 }
